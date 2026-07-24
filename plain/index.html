@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>南通大学新生通关宝典 · 2026级</title>
+<meta name="description" content="通大学长学姐整理的新生万能攻略：校区宿舍真相、报到流程、开学清单、军训生存、转专业全攻略、保研政策、社团大全、防骗指南。">
+<style>
+:root{
+  --blue:#2f6fdd; --deep:#1a4fa8; --navy:#0d2f6b; --sky:#e8f0fe;
+  --orange:#ff7a45; --yellow:#ffc53d; --green:#17b890; --red:#f5483b;
+  --ink:#1c2333; --sub:#5b6478; --line:#e6eaf3; --bg:#f4f6fb; --card:#ffffff;
+  --shadow:0 6px 24px rgba(23,60,140,.08);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px}
+img{max-width:100%}
+a{color:var(--blue);text-decoration:none}
+::selection{background:#cfe0ff}
+
+/* 顶部阅读进度条 */
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--orange));width:0;z-index:999;transition:width .1s}
+
+/* ===== HERO ===== */
+.hero{position:relative;overflow:hidden;background:linear-gradient(150deg,#3b7bef 0%,#2456c4 55%,#123a8f 100%);color:#fff;padding:56px 20px 88px;text-align:center}
+.hero::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.07);top:-120px;right:-100px}
+.hero::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,197,61,.12);bottom:-90px;left:-70px}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:4px 14px;border-radius:999px;font-size:12.5px;letter-spacing:1px;margin-bottom:16px;backdrop-filter:blur(4px)}
+.hero h1{font-size:30px;line-height:1.35;font-weight:800;letter-spacing:1px;position:relative;z-index:2}
+.hero h1 .hl{color:var(--yellow)}
+.hero p.sub{margin:12px auto 0;max-width:560px;font-size:14.5px;color:#dbe7ff;position:relative;z-index:2}
+.hero .stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;position:relative;z-index:2}
+.hero .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:10px 14px;min-width:88px;backdrop-filter:blur(4px)}
+.hero .stat b{display:block;font-size:19px;color:var(--yellow)}
+.hero .stat span{font-size:11.5px;color:#d5e3ff}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-weight:700;border-radius:999px;padding:13px 26px;font-size:15px;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:scale(.96)}
+.btn-primary{background:linear-gradient(135deg,var(--yellow),var(--orange));color:#5a2d00;box-shadow:0 8px 20px rgba(255,150,50,.4)}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.hero .wave{position:absolute;bottom:-2px;left:0;width:100%;display:block}
+
+/* ===== 悬浮目录 chips ===== */
+.chips{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:0 0 auto;font-size:13px;color:var(--sub);background:#f0f3fa;border-radius:999px;padding:6px 13px;font-weight:600;white-space:nowrap;border:1px solid transparent}
+.chips a.active{background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(47,111,221,.35)}
+
+/* ===== 布局 ===== */
+.wrap{max-width:860px;margin:0 auto;padding:0 14px}
+section{margin-top:34px}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.sec-head .ico{width:40px;height:40px;flex:0 0 40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:21px;background:var(--sky);box-shadow:inset 0 0 0 1px #d3e2fd}
+.sec-head h2{font-size:20px;font-weight:800}
+.sec-head small{display:block;font-size:12.5px;color:var(--sub);font-weight:400}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.muted{color:var(--sub);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:6px;vertical-align:1px}
+.pill.b{background:#e3edff;color:#2456c4}.pill.o{background:#ffe9dc;color:#d14a00}.pill.g{background:#d9f6ec;color:#0a7a5c}.pill.r{background:#ffe1de;color:#c2281c}.pill.y{background:#fff4d1;color:#946900}
+.hr{height:1px;background:var(--line);margin:14px 0}
+ul.clean{list-style:none}
+ul.clean li{padding-left:20px;position:relative;margin:6px 0}
+ul.clean li::before{content:"";position:absolute;left:2px;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+ul.check li::before{content:"✔";background:none;color:var(--green);left:0;top:0;font-size:13px;font-weight:700}
+ul.cross li::before{content:"✖";background:none;color:var(--red);left:0;top:0;font-size:12.5px;font-weight:700}
+
+/* ===== 资料包钩子 ===== */
+.gift{background:linear-gradient(135deg,#fff7e8,#ffe9d6);border:1.5px dashed #ffb066;position:relative;overflow:hidden}
+.gift .corner{position:absolute;top:-14px;right:-14px;width:74px;height:74px;background:var(--orange);transform:rotate(45deg)}
+.gift .corner span{position:absolute;bottom:16px;left:14px;color:#fff;font-size:11px;font-weight:800;transform:rotate(-45deg)}
+.gift h3{font-size:17.5px;color:#b34500}
+.gift-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+@media(max-width:640px){.gift-list{grid-template-columns:1fr}}
+.gift-list div{background:rgba(255,255,255,.75);border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600;color:#6b4a2a}
+.wx-bar{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:10px 14px;margin-top:12px;box-shadow:0 4px 14px rgba(255,122,69,.18)}
+.wx-bar .id{flex:1;font-weight:800;font-size:17px;letter-spacing:1px;color:var(--deep)}
+.wx-bar small{display:block;font-weight:400;color:var(--sub);font-size:11.5px}
+.copy-btn{background:var(--green);color:#fff;border:none;border-radius:9px;padding:9px 16px;font-weight:700;cursor:pointer;font-size:13.5px;white-space:nowrap}
+.copy-btn:active{transform:scale(.94)}
+
+/* ===== 校区 tabs ===== */
+.tabs{display:flex;gap:8px;margin-top:14px}
+.tabs button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 4px;font-size:14px;font-weight:700;color:var(--sub);cursor:pointer}
+.tabs button.active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 6px 16px rgba(47,111,221,.3)}
+.campus-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.campus-head h3{font-size:17px}
+.kv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.kv span{font-size:12px;background:#f0f3fa;border-radius:8px;padding:4px 10px;color:var(--sub);font-weight:600}
+.quote{background:#f7f9ff;border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13.8px;color:#33415e}
+.quote b{color:var(--deep)}
+.score-line{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13.5px}
+.score-line .lb{width:64px;flex:0 0 64px;color:var(--sub);font-weight:600}
+.score-line .bar{flex:1;height:9px;background:#eef1f8;border-radius:99px;overflow:hidden}
+.score-line .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6ea2ff,#2f6fdd)}
+
+/* ===== 步骤时间线 ===== */
+.steps{position:relative;padding-left:26px;margin-top:6px}
+.steps::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(#6ea2ff,#2f6fdd)}
+.step{position:relative;padding:0 0 16px}
+.step::before{content:"";position:absolute;left:-24px;top:5px;width:12px;height:12px;border-radius:50%;background:#fff;border:3.5px solid var(--blue)}
+.step b{color:var(--deep)}
+.step .t{font-size:12px;color:var(--orange);font-weight:700}
+
+/* ===== 清单 checkbox ===== */
+.ck-cat{margin-top:10px}
+.ck-cat>h4{font-size:15px;padding:8px 12px;background:var(--sky);border-radius:10px;color:var(--deep);display:flex;justify-content:space-between;align-items:center}
+.ck-cat>h4 .cnt{font-size:11.5px;color:var(--sub);font-weight:500}
+.ck-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;padding:8px 4px}
+@media(max-width:640px){.ck-grid{grid-template-columns:1fr}}
+.ck-grid label{display:flex;gap:8px;align-items:flex-start;font-size:13.8px;padding:5px 4px;border-radius:8px;cursor:pointer}
+.ck-grid label:active{background:#f0f3fa}
+.ck-grid input{margin-top:4px;accent-color:var(--green);width:15px;height:15px;flex:0 0 15px}
+.ck-grid label.done span{text-decoration:line-through;color:#9aa3b8}
+.ck-progress{height:10px;background:#eef1f8;border-radius:99px;overflow:hidden;margin-top:10px}
+.ck-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),#4ade80);transition:width .3s}
+
+/* ===== 表格 ===== */
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:13.2px;background:#fff}
+th{background:var(--deep);color:#fff;padding:9px 10px;text-align:left;white-space:nowrap;font-weight:700}
+td{padding:8px 10px;border-bottom:1px solid #eef1f8;white-space:nowrap}
+tr:nth-child(even) td{background:#f8faff}
+.search-box{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;font-size:14px;margin-top:12px;outline:none}
+.search-box:focus{border-color:var(--blue)}
+
+/* ===== 折叠 FAQ ===== */
+.acc{border:1px solid var(--line);border-radius:12px;margin-top:10px;overflow:hidden;background:#fff}
+.acc summary{cursor:pointer;padding:13px 16px;font-weight:700;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.acc summary::after{content:"＋";color:var(--blue);font-size:18px;flex:0 0 auto}
+.acc[open] summary::after{content:"－"}
+.acc .acc-body{padding:0 16px 14px;font-size:13.8px;color:#38415a}
+
+/* ===== 军训卡片 ===== */
+.jx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:12px}
+.jx{background:#fff;border-radius:14px;padding:13px;box-shadow:var(--shadow);border-top:4px solid var(--yellow)}
+.jx b{display:block;font-size:14px;margin-bottom:4px}
+.jx p{font-size:12.8px;color:var(--sub);line-height:1.6}
+
+/* ===== 社团 ===== */
+.club-cats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.club-cats button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;color:var(--sub);cursor:pointer}
+.club-cats button.active{background:var(--green);border-color:var(--green);color:#fff}
+.club-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.club-tags span{background:#f0faf6;border:1px solid #cdeee0;color:#0a6b52;font-size:12.8px;border-radius:9px;padding:5px 11px;font-weight:600}
+
+/* ===== 底部 CTA / 悬浮 ===== */
+.final-cta{background:linear-gradient(135deg,#3b7bef,#123a8f);border-radius:20px;color:#fff;text-align:center;padding:30px 20px;margin-top:34px;box-shadow:0 14px 34px rgba(18,58,143,.35)}
+.final-cta h3{font-size:20px}
+.final-cta p{color:#d5e3ff;font-size:13.5px;margin:8px 0 18px}
+.fab{position:fixed;right:14px;bottom:20px;z-index:120;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.fab button{border:none;cursor:pointer;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.fab .fab-main{background:linear-gradient(135deg,var(--yellow),var(--orange));color:#5a2d00;padding:14px 22px;font-size:15px;animation:pulse 2.2s infinite}
+.fab .fab-top{background:#fff;color:var(--deep);padding:10px 16px;font-size:12.5px;border:1px solid var(--line)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+footer{text-align:center;color:var(--sub);font-size:12px;padding:26px 16px 110px;line-height:1.9}
+
+/* ===== 弹窗 ===== */
+.mask{position:fixed;inset:0;background:rgba(10,20,45,.55);z-index:200;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
+.mask.show{display:flex}
+.sheet{background:#fff;width:100%;max-width:480px;border-radius:22px 22px 0 0;padding:24px 22px 34px;animation:up .28s ease}
+@keyframes up{from{transform:translateY(60px);opacity:.4}to{transform:none;opacity:1}}
+.sheet h3{text-align:center;font-size:18px}
+.sheet .wx-big{text-align:center;font-size:26px;font-weight:800;letter-spacing:1.5px;color:var(--deep);background:var(--sky);border-radius:14px;padding:16px;margin:16px 0 6px}
+.sheet .tips{text-align:center;font-size:12.5px;color:var(--sub);margin-bottom:14px}
+.sheet .row{display:flex;gap:10px}
+.sheet .row button{flex:1;border:none;border-radius:12px;padding:13px;font-size:14.5px;font-weight:800;cursor:pointer}
+.sheet .row .cp{background:var(--green);color:#fff}
+.sheet .row .close{background:#eef1f8;color:var(--sub)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:rgba(20,28,48,.92);color:#fff;padding:10px 22px;border-radius:999px;font-size:13.5px;z-index:300;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+@media(min-width:700px){.hero h1{font-size:36px}}
+
+/* ===== 强制解锁门禁 ===== */
+.gate{position:fixed;inset:0;z-index:500;background:linear-gradient(160deg,#1c46a0 0%,#123a8f 45%,#0b2560 100%);display:flex;align-items:center;justify-content:center;padding:18px;overflow-y:auto}
+.gate-inner{width:100%;max-width:400px;background:#fff;border-radius:24px;padding:26px 22px 24px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.4);margin:auto}
+.gate-inner .lock{font-size:34px}
+.gate-inner h2{font-size:20px;margin:6px 0 2px}
+.gate-inner .g-sub{font-size:13px;color:var(--sub);line-height:1.6}
+.gate-qr{width:230px;height:230px;margin:14px auto 8px;border-radius:16px;border:1.5px solid var(--line);padding:8px;background:#fff;box-shadow:0 8px 24px rgba(23,60,140,.15);display:block}
+.gate-steps{text-align:left;background:#f7f9ff;border-radius:12px;padding:10px 14px;font-size:12.8px;color:#38415a;margin:10px 0;line-height:1.8}
+.gate-wx{display:flex;align-items:center;gap:8px;background:var(--sky);border-radius:12px;padding:9px 12px;margin:10px 0}
+.gate-wx b{flex:1;text-align:left;font-size:16px;color:var(--deep);letter-spacing:.5px}
+.gate-wx button{background:var(--green);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-weight:700;cursor:pointer;font-size:12.5px}
+.gate-code-row{display:flex;gap:8px;margin-top:10px}
+.gate-code-row input{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:14px;outline:none;text-align:center;letter-spacing:2px}
+.gate-code-row input:focus{border-color:var(--blue)}
+.gate-code-row button{background:var(--blue);color:#fff;border:none;border-radius:12px;padding:0 16px;font-weight:700;cursor:pointer;font-size:13.5px}
+.gate-divider{font-size:11.5px;color:#9aa3b8;margin-top:12px}
+.shake{animation:shake .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+/* ===== 专属顾问二维码卡 ===== */
+.advisor{background:linear-gradient(135deg,#eff6ff,#e4edff);border:1.5px solid #c8dcff;text-align:center}
+.advisor .qr-big{width:210px;height:210px;border-radius:16px;border:1.5px solid #fff;padding:8px;background:#fff;box-shadow:0 10px 26px rgba(23,60,140,.18);margin:12px auto}
+.advisor h3{font-size:17.5px;color:var(--navy)}
+.advisor .who{display:inline-flex;gap:8px;align-items:center;background:#fff;border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:700;color:var(--deep);box-shadow:0 3px 10px rgba(23,60,140,.1)}
+.share-row{display:flex;gap:10px;margin-top:14px}
+.share-row button{flex:1;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:800;cursor:pointer}
+.share-row .sh{background:var(--blue);color:#fff}
+.share-row .cp2{background:#fff;color:var(--deep);border:1.5px solid #c8dcff}
+.sheet .qr-mini{width:170px;height:170px;border-radius:14px;border:1.5px solid var(--line);padding:6px;margin:12px auto 2px;display:block;background:#fff}
+</style>
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'9fb3438fcbe2470e8a48f1bee1302d58'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+<div id="progress"></div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <span class="tag">通大学长学姐熬夜整理 · 全网超全新生攻略</span>
+  <h1>南通大学<span class="hl">新生通关宝典</span><br>2026级适用</h1>
+  <p class="sub">校区宿舍真相 · 报到流程 · 开学清单 · 军训生存 · 转专业全攻略 · 保研政策 · 社团大全 · 防骗指南，一篇全搞定</p>
+  <div class="stats">
+    <div class="stat"><b>1912</b><span>张謇创办·百年通大</span></div>
+    <div class="stat"><b>3</b><span>大校区真实测评</span></div>
+    <div class="stat"><b>150+</b><span>社团联系方式</span></div>
+    <div class="stat"><b>9600+</b><span>2025级新生规模</span></div>
+  </div>
+  <div class="cta-row">
+    <button class="btn btn-primary" onclick="openWx()">🎁 免费领新生资料包</button>
+    <a class="btn btn-ghost" href="#campus">先看校区真相 ↓</a>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,16 1440,32 L1440,62 L0,62 Z" fill="#f4f6fb"/></svg>
+</header>
+
+<!-- ================= 目录 ================= -->
+<nav class="chips" id="chips">
+  <a href="#gift">🎁 资料包</a>
+  <a href="#about">🏫 秒懂通大</a>
+  <a href="#campus">🗺️ 三大校区</a>
+  <a href="#dorm">🛏️ 宿舍真相</a>
+  <a href="#food">🍜 干饭</a>
+  <a href="#register">📝 报到</a>
+  <a href="#checklist">🎒 开学清单</a>
+  <a href="#junxun">🪖 军训</a>
+  <a href="#transfer">🚀 转专业</a>
+  <a href="#baoyan">🎓 保研</a>
+  <a href="#clubs">🎪 社团</a>
+  <a href="#scam">⚠️ 防骗</a>
+  <a href="#faq">❓ FAQ</a>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= 资料包钩子 ================= -->
+<section id="gift">
+  <div class="card gift">
+    <div class="corner"><span>FREE</span></div>
+    <h3>🎁 新生专属资料包（免费领取）</h3>
+    <p class="muted" style="margin-top:4px">学长学姐把压箱底的资料都打包好了，全部免费送：</p>
+    <div class="gift-list">
+      <div>📄 转专业历年真题 + 面试题库</div>
+      <div>📊 各专业转专业英语分数线汇总</div>
+      <div>🔤 四六级真题/词汇/听力资料</div>
+      <div>🎒 开学必带清单（超详细PDF版）</div>
+      <div>🛏️ 三校区宿舍实拍 + 避坑指南</div>
+      <div>🎪 150+社团联系方式汇总表</div>
+      <div>🎓 通大保研政策原文 + 解读</div>
+      <div>🗺️ 校园地图 + 720°全景VR</div>
+    </div>
+    <div class="wx-bar">
+      <div class="id">👉 领取方式<small>点下方按钮，10 秒领到全套</small></div>
+      <button class="copy-btn" onclick="openWx()">领取</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 新生顾问（公域合规版：引导关注+私信，无联系方式露出） ================= -->
+<section id="advisor">
+  <div class="card advisor">
+    <span class="who">💬 你的新生顾问 · 在线答疑</span>
+    <h3 style="margin-top:10px">有任何不明白的，直接问我</h3>
+    <p class="muted" style="max-width:420px;margin:6px auto 0">校区分配、宿舍条件、转专业规划、四级备考、报到细节……通大在读学长学姐在线答疑，看到就回，全部免费。</p>
+    <div class="share-row" style="max-width:420px;margin:16px auto 0">
+      <button class="sh" onclick="openWx()">💬 我要提问 / 领资料</button>
+      <button class="cp2" onclick="sharePage()">📤 转发给身边的新生</button>
+    </div>
+    <p class="muted" style="margin-top:10px;font-size:12px">觉得有用就转给同届同学，一起做通大情报搭子 🤝</p>
+  </div>
+</section>
+
+<!-- ================= 秒懂通大 ================= -->
+<section id="about">
+  <div class="sec-head">
+    <div class="ico">🏫</div>
+    <h2>30秒秒懂通大<small>填志愿、见亲戚、发朋友圈都用得上</small></h2>
+  </div>
+  <div class="card">
+    <div class="kv">
+      <span>🏛️ 1912年·张謇创办</span><span>📜 校训：祈通中西 力求精进</span><span>🤝 江苏省与交通运输部共建</span><span>🏆 江苏高水平大学高峰计划</span>
+    </div>
+    <ul class="clean">
+      <li><b>出身名门：</b>源自张謇先生1912年创办的私立南通医学专门学校（国人最早创办的私立高等医学院校之一）和南通纺织专门学校（中国最早独立设置的纺织专科院校），2004年由南通医学院、南通工学院、南通师范学院三校合并组建。</li>
+      <li><b>硬核实力：</b>《2025中国大学评价》第98位；13个学科进入ESI全球前1%（临床医学、工程学、计算机科学、材料科学等）；7个一级学科博士点、25个一级学科硕士点。</li>
+      <li><b>医学王牌：</b>培养了12位两院院士，医学领域院士校友入选人数并列全国高校第9、江苏第1；直属1家大型综合三甲——南通大学附属医院。</li>
+      <li><b>规模：</b>27个学院 + 1个独立学院（杏林学院），79个本科招生专业，覆盖文理工医艺等10大门类；2025级本科新生9627人。</li>
+      <li><b>升学：</b>整体保研率约5%，考研氛围浓，医学、师范、电气、计算机是热门升学方向。</li>
+    </ul>
+    <div class="hr"></div>
+    <p class="muted">📍 啬园校区：南通市崇川区啬园路9号（主校区）｜启秀校区：崇川区启秀路19号（医学）｜启东校区：启东市高新区南海路1号（海景新校区）｜<a href="https://qj.720pai.cn/tour/5c37f23f103798fd?Tid=scene_2ae1f2cd90549e48" target="_blank" rel="noopener">👉 点我看720°校园全景VR</a></p>
+  </div>
+</section>
+
+<!-- ================= 三大校区 ================= -->
+<section id="campus">
+  <div class="sec-head">
+    <div class="ico">🗺️</div>
+    <h2>三大校区真实测评<small>在校生真心话，不吹不黑（重点：多数专业大一在启东，大二搬啬园！）</small></h2>
+  </div>
+  <div class="tabs">
+    <button class="active" data-c="qidong">🌊 启东校区</button>
+    <button data-c="seyuan">🏙️ 啬园校区</button>
+    <button data-c="qixiu">⚕️ 启秀校区</button>
+  </div>
+
+  <div class="card campus" id="c-qidong">
+    <div class="campus-head"><h3>🌊 启东校区 · 海景顶配新校区</h3><span class="pill g">住宿第一梯队</span></div>
+    <div class="kv"><span>📍 启东市高新区南海路1号</span><span>👥 多数专业大一就读 + 杏林学院</span><span>🏠 4/6人间·独卫·空调</span></div>
+    <div class="quote"><b>学长学姐说：</b>教学楼宿舍楼都是近年新建，干净整洁。部分楼栋高楼层是<b>海景宿舍</b>，推窗见海、看海边日落，氛围感绝。宿舍4/6人间上床下桌，独立卫浴+空调+热水稳定，通大三校区住宿天花板。</div>
+    <div class="score-line"><span class="lb">住宿条件</span><div class="bar"><i style="width:95%"></i></div>⭐95</div>
+    <div class="score-line"><span class="lb">学习氛围</span><div class="bar"><i style="width:90%"></i></div>⭐90</div>
+    <div class="score-line"><span class="lb">吃喝玩乐</span><div class="bar"><i style="width:55%"></i></div>⭐55</div>
+    <div class="score-line"><span class="lb">交通便利</span><div class="bar"><i style="width:40%"></i></div>⭐40</div>
+    <div class="hr"></div>
+    <ul class="check">
+      <li>校内两大食堂 + 商业街（麦当劳、瑞幸、711），快递站超市洗衣房齐全</li>
+      <li>远离喧嚣超适合沉淀学习，备考考研考公圣地，校园十分钟走完</li>
+      <li>操场看海散步，环境治愈，节奏不卷不焦虑</li>
+    </ul>
+    <ul class="cross">
+      <li>位置偏！无地铁，进城约1小时，周末逛街探店基本告别</li>
+      <li>临海风大潮湿，梅雨季衣物被褥易返潮，蚊虫稍多</li>
+      <li>⚠️ 大二整体搬迁啬园主校区，要做好搬家心理准备</li>
+    </ul>
+  </div>
+
+  <div class="card campus" id="c-seyuan" style="display:none">
+    <div class="campus-head"><h3>🏙️ 啬园校区 · 主校区C位</h3><span class="pill b">主校区</span></div>
+    <div class="kv"><span>📍 崇川区啬园路9号</span><span>🚇 地铁1号线直达</span><span>🏠 6人间为主·上床下桌</span></div>
+    <div class="quote"><b>学长学姐说：</b>通大门面担当，占地约2000亩的"花园式校园"，图书馆、体育馆、人工湖都在这。西北1门出去就是<b>国际青创园美食街</b>（地铁口正对面），吃喝玩乐方便度三校区第一。</div>
+    <div class="score-line"><span class="lb">住宿条件</span><div class="bar"><i style="width:80%"></i></div>⭐80</div>
+    <div class="score-line"><span class="lb">学习氛围</span><div class="bar"><i style="width:85%"></i></div>⭐85</div>
+    <div class="score-line"><span class="lb">吃喝玩乐</span><div class="bar"><i style="width:90%"></i></div>⭐90</div>
+    <div class="score-line"><span class="lb">交通便利</span><div class="bar"><i style="width:88%"></i></div>⭐88</div>
+    <div class="hr"></div>
+    <ul class="check">
+      <li>6人间上床下桌，女生楼多独卫；22#、23#小高层带电梯，朝南朝北同价</li>
+      <li>三个食堂（一食堂近西操、二食堂靠北门、青教食堂），北门青创园聚餐一条龙</li>
+      <li>近南通行政中心/中南商圈，实习兼职机会多；2026年七期新公寓建成投用</li>
+    </ul>
+    <ul class="cross">
+      <li>男生宿舍多为楼层大澡堂，热水限时（中午12-14点/晚16-22点）</li>
+      <li>限电500W，超额电费宿舍AA，卷发棒电煮锅别想了</li>
+      <li>抢晒被子位要趁早，每层公共阳台+楼下空地靠手速</li>
+    </ul>
+  </div>
+
+  <div class="card campus" id="c-qixiu" style="display:none">
+    <div class="campus-head"><h3>⚕️ 启秀校区 · 百年医学院</h3><span class="pill r">又累又卷</span></div>
+    <div class="kv"><span>📍 崇川区启秀路19号</span><span>👥 医学/护理专业</span><span>🏠 北区6-8人间上下铺</span></div>
+    <div class="quote"><b>学长学姐说：</b>招生美图都是啬园新校区，来了启秀瞬间"穿越"——百年老校区，北区主流6/8人间纯上下铺、无独卫、公共澡堂。但！出门就是<b>市中心濠河商圈</b>，离附属医院超近，实习通勤无敌。</div>
+    <div class="score-line"><span class="lb">住宿条件</span><div class="bar"><i style="width:50%"></i></div>⭐50</div>
+    <div class="score-line"><span class="lb">学习氛围</span><div class="bar"><i style="width:96%"></i></div>⭐96</div>
+    <div class="score-line"><span class="lb">吃喝玩乐</span><div class="bar"><i style="width:85%"></i></div>⭐85</div>
+    <div class="score-line"><span class="lb">交通便利</span><div class="bar"><i style="width:92%"></i></div>⭐92</div>
+    <div class="hr"></div>
+    <ul class="check">
+      <li>市中心位置绝了：濠河、南通博物苑、商圈地铁全在附近</li>
+      <li>紧邻各大附属医院，见习实习走路上班</li>
+      <li>医学底蕴强、学风扎实，考研考证氛围拉满；校区小，上课不赶路</li>
+    </ul>
+    <ul class="cross">
+      <li>北区8人间上下铺、水泥地、无独立书桌，住宿费约500元/年</li>
+      <li>无独卫，洗澡跨楼栋去大澡堂；部分楼无阳台，走廊拉绳晾衣</li>
+      <li>食堂傍晚6点半收摊，医学生常错过饭点——杏林桥小吃摊因此被称为"三食堂"</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 宿舍真相 ================= -->
+<section id="dorm">
+  <div class="sec-head">
+    <div class="ico">🛏️</div>
+    <h2>宿舍真相局<small>门禁、熄灯、限电、洗衣，新生最关心的都在这</small></h2>
+  </div>
+  <div class="card">
+    <div class="grid2">
+      <div>
+        <span class="pill b">生活规则</span>
+        <ul class="clean" style="margin-top:8px">
+          <li><b>门禁：</b>23:00锁楼，夜不归宿算违纪</li>
+          <li><b>熄灯：</b>周日至周四22:30、周五周六23:00（插座不断电）</li>
+          <li><b>限电：</b>约500W，电煮锅/大功率吹风机遇检即处分</li>
+          <li><b>洗衣：</b>每栋1楼扫码洗衣机+烘干机</li>
+          <li><b>空调：</b>全校覆盖，但电费自理，通宵开肉疼</li>
+          <li><b>吹风机：</b>限走廊专用插座使用</li>
+        </ul>
+      </div>
+      <div>
+        <span class="pill g">宿舍神器（合法好用）</span>
+        <ul class="clean" style="margin-top:8px">
+          <li>魔方插座——限电救星</li>
+          <li>床边挂篮——上铺必备</li>
+          <li>洗衣袋——公共洗衣防勾丝</li>
+          <li>除湿袋/盒——启东校区续命神器</li>
+          <li>折叠书桌——启秀北区自救装备</li>
+          <li>床帘+串灯+收纳架——百元改造INS风</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <p class="muted">💡 <b>选宿舍玄学：</b>启东2楼以上阳台看海，阳面6人间、阴面4人间；啬园小高层朝南6人间、朝北4人间同价。宿舍是租的，生活是自己的——墙纸收纳安排上，老破小也能住出幸福感。</p>
+  </div>
+</section>
+
+<!-- ================= 干饭 ================= -->
+<section id="food">
+  <div class="sec-head">
+    <div class="ico">🍜</div>
+    <h2>通大干饭指南<small>食堂 + 校外美食街一手情报</small></h2>
+  </div>
+  <div class="card">
+    <span class="pill b">啬园校区</span>
+    <ul class="clean" style="margin-top:8px">
+      <li><b>校内：</b>一食堂（近西操）、二食堂（靠北门）、青教食堂（"东大荒"救命粮仓）</li>
+      <li><b>西北1门小吃街：</b>杨国福麻辣烫等，下课加餐首选</li>
+      <li><b>国际青创园（地铁1号口正对面）：</b>肯德基、辣冲天火锅鸡、陈香贵兰州牛肉面、鸭得堡鸭血粉丝、潮汕生滚粥、华莱士、烤私房菜……人均10-50元全覆盖，宿舍聚餐根据地</li>
+    </ul>
+    <div class="hr"></div>
+    <span class="pill g">启东校区</span>
+    <ul class="clean">
+      <li>校内两大食堂，菜品多、性价比尚可；商业街有麦当劳、瑞幸、711、奶茶打印店，日常够用</li>
+      <li>高端餐饮少，建议囤好零食，周末可拼车进城改善伙食</li>
+    </ul>
+    <div class="hr"></div>
+    <span class="pill r">启秀校区</span>
+    <ul class="clean">
+      <li>食堂傍晚6点半收摊，菜品更新慢；错过饭点就去<b>杏林桥"三食堂"</b>——南北区之间的小吃摊一条街，启秀学子的深夜食堂</li>
+      <li>校内商业配套少，买日用品得出校门；好在市中心，外卖选择全城最多</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 报到 ================= -->
+<section id="register">
+  <div class="sec-head">
+    <div class="ico">📝</div>
+    <h2>报到全流程<small>参考2025级：9月6-7日报到，具体以录取通知书为准</small></h2>
+  </div>
+  <div class="card">
+    <span class="pill r">证件类·缺一不可</span>
+    <div class="ck-grid" style="margin-top:6px">
+      <label>• 录取通知书 + 高考准考证</label>
+      <label>• 身份证原件 + 正反面复印件×4</label>
+      <label>• 户口本本人页复印件×4</label>
+      <label>• 一寸照≥12张 + 二寸照2-4张（蓝底）</label>
+      <label>• 团员档案 + 学生档案（千万别丢！）</label>
+      <label>• 学校邮寄的银行卡 + 若干现金</label>
+      <label>• 贫困生补助材料（需提前盖章）</label>
+      <label>• 生源地贷款回执（如有）</label>
+    </div>
+    <div class="hr"></div>
+    <div class="steps">
+      <div class="step"><b>① 找组织</b> · 到校后找本院系迎新点（认准统一服装的学长学姐），学校在车站/机场有接站车"点对点"送到校区</div>
+      <div class="step"><b>② 资格审核</b> · 出示身份证、录取通知书、准考证、档案，领取报到证（含院系、学号）</div>
+      <div class="step"><b>③ 办住宿</b> · 到住宿管理中心领宿舍号、床号、钥匙，按指引领取被褥床单</div>
+      <div class="step"><b>④ 缴学费</b> · 已银行汇款的直接领收据；未缴的现场财务处办理</div>
+      <div class="step"><b>⑤ 办校园卡/一卡通</b> · 吃饭、进图书馆、洗澡都靠它</div>
+      <div class="step"><b>⑥ 党团关系 + 户口迁移（自愿）</b> · 介绍信开班会统一交；户口迁不迁看个人规划</div>
+      <div class="step"><b>⑦ 绿色通道</b> · 家庭经济困难同学先入学后缴费，现场还有爱心大礼包和专项补助</div>
+      <div class="step"><b>⑧ 入学教育 + 军训</b> · 开学典礼后开始军训，约两周，备好防晒鞋垫</div>
+    </div>
+    <p class="muted" style="margin-top:6px">⚡ 手续虽多但集中办理，跟着人流和指引走很快搞定，不懂就问现场志愿者。</p>
+  </div>
+</section>
+
+<!-- ================= 开学清单 ================= -->
+<section id="checklist">
+  <div class="sec-head">
+    <div class="ico">🎒</div>
+    <h2>开学必带清单<small>可勾选，自动保存进度；高清PDF版在资料包里</small></h2>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="muted" id="ck-label">已完成 0%</span>
+      <button class="copy-btn" style="background:#eef1f8;color:var(--sub)" onclick="resetCk()">清空重来</button>
+    </div>
+    <div class="ck-progress"><i id="ck-bar"></i></div>
+    <div id="ck-area"></div>
+    <p class="muted" style="margin-top:8px">💡 大件被褥可到校再买或网购寄学校（地址填校区菜鸟驿站）；吹风机≤800W可带，电煮锅/卷发棒/电热水壶是违禁品别带。</p>
+  </div>
+</section>
+
+<!-- ================= 军训 ================= -->
+<section id="junxun">
+  <div class="sec-head">
+    <div class="ico">🪖</div>
+    <h2>军训生存指南<small>老生血泪总结的保命要点</small></h2>
+  </div>
+  <div class="jx-grid">
+    <div class="jx"><b>🦶 鞋垫必买</b><p>军训鞋底薄如纸，软鞋垫+棉袜防磨水泡；晚上抽出来晾，塞纸巾吸潮</p></div>
+    <div class="jx"><b>🧴 防晒涂勤</b><p>出门前30分钟涂，休息就补；选带PA值的防UVA款，晒后修复备好</p></div>
+    <div class="jx"><b>💧 喝水有讲究</b><p>淡盐水/运动饮料最佳，别灌冰饮；大汗淋漓后歇口气再喝</p></div>
+    <div class="jx"><b>🎽 别真空穿军服</b><p>晴纶不透气，里面穿吸汗背心+爽身粉，防痱子防磨</p></div>
+    <div class="jx"><b>🩹 药膏随身</b><p>水泡挑破挤水涂消炎膏；风油精/万金油治头晕，创可贴备足</p></div>
+    <div class="jx"><b>🫖 水壶去异味</b><p>热茶叶水泡一晚；配根吸管不碰壶口，水不发苦</p></div>
+    <div class="jx"><b>🗣️ 省着嗓子</b><p>拉歌喊口号要喊十天，第一天别喊劈了</p></div>
+    <div class="jx"><b>🧘 热身防扭伤</b><p>每天训前活动脚踝膝盖；军服先洗再穿（掉色，别和浅色混洗）</p></div>
+    <div class="jx"><b>🛌 午睡回血</b><p>中午抓紧眯一会儿；按时作息，别熬夜硬撑</p></div>
+    <div class="jx"><b>🙋 不适就打报告</b><p>真撑不住别硬扛，教官都会放行，不丢人</p></div>
+    <div class="jx"><b>🔒 看好财物</b><p>训练场人杂，贵重物品锁柜里，老生丢过相机水壶</p></div>
+    <div class="jx"><b>🍗 训后补营养</b><p>肉蛋汤菜安排上，补维生素，别亏待自己</p></div>
+  </div>
+</section>
+
+<!-- ================= 转专业 ================= -->
+<section id="transfer">
+  <div class="sec-head">
+    <div class="ico">🚀</div>
+    <h2>转专业全攻略<small>通大新生最关心的问题，没有之一</small></h2>
+  </div>
+
+  <div class="card">
+    <span class="pill y">先记住这5条</span>
+    <ul class="clean" style="margin-top:8px">
+      <li><b>3次机会：</b>大一上、大一下、大二下；<b>大一上是黄金窗口</b>——平转不留级，错过后面可能要降转</li>
+      <li><b>硬门槛：</b>无处分、非专升本、所修课程（除通识选修）<b>全部通过</b>——挂科=失去资格</li>
+      <li><b>考英语：</b>学校统一英语笔试（12月初），难度介于四六级之间，满分100</li>
+      <li><b>只能成功转1次</b>，转入后1个月内可申请退回原专业</li>
+      <li>报名人数≤计划数的专业，不考试，学院考核通过直接录</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px">🗓️ 大一上转专业时间线（参考2025年安排）</h3>
+    <div class="steps" style="margin-top:10px">
+      <div class="step"><span class="t">11月7日起</span><b> 学院公示考核方案</b> · 各学院网站公示5天，看目标专业收几人、考什么</div>
+      <div class="step"><span class="t">11月13-18日</span><b> 网上报名</b> · 教学综合信息服务平台填2个志愿，18日16:30截止，逾期不候</div>
+      <div class="step"><span class="t">12月3日</span><b> 全校统一英语考试</b> · 当晚出成绩！按1.5:1比例投档进复试</div>
+      <div class="step"><span class="t">12月5-15日</span><b> 一志愿考核</b> · 笔试/面试/专业素质测试，公示预录取</div>
+      <div class="step"><span class="t">12月19-26日</span><b> 二志愿考核</b> · 仅一志愿落榜且二志愿专业有缺额时生效</div>
+      <div class="step"><span class="t">第18-19周</span><b> 公示拟录取</b> · 签转专业承诺书</div>
+      <div class="step"><span class="t">期末后</span><b> 资格复核</b> · 期末挂科、缓考或受处分将被取消资格！下学期初到新学院报到</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px">🔤 转专业英语考什么？</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>板块</th><th>分值</th><th>说明</th></tr>
+      <tr><td>听力</td><td>10</td><td>新闻+长对话+短文，只读一遍，语速比高考快</td></tr>
+      <tr><td>阅读</td><td>40</td><td>选词填空10 + 段落匹配10 + 仔细阅读20</td></tr>
+      <tr><td>翻译</td><td>30</td><td>汉译英+英译汉双向，长难句多（高考没有）</td></tr>
+      <tr><td>写作</td><td>20</td><td>议论文150-200词，重逻辑论证</td></tr>
+    </table></div>
+    <p class="muted" style="margin-top:8px">词汇量要求≈四级4500词；素材多外文新闻、学术评论，同义替换多、推理题占半。<b>高考英语好≠转专业英语好</b>——2026年6月实考894人，平均分仅72.03，最高91.8，80分以上仅22%。想转热门专业，暑假就得开始准备！</p>
+    <div class="quote" style="margin-top:10px">📈 <b>2026年6月成绩分布：</b>60-69分占22%｜70-79分占43%｜80-89分占22%｜90+仅6人。临床、计算机等热门专业录取线常年80+。</div>
+    <button class="btn btn-primary" style="margin-top:10px;font-size:14px;padding:11px 20px" onclick="openWx()">📄 领历年真题+答案解析</button>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px">🎯 各专业英语录取分数线（近两年）</h3>
+    <input class="search-box" placeholder="🔍 搜索专业，如：临床 / 计算机 / 法学" onkeyup="filterTable(this,'scoreTable')">
+    <div class="tbl-wrap"><table id="scoreTable">
+      <tr><th>专业</th><th>批次</th><th>英语线</th></tr>
+      <tr><td>临床医学</td><td>25年12月</td><td><b style="color:var(--red)">84.0</b></td></tr>
+      <tr><td>临床医学</td><td>24年12月</td><td>81.0</td></tr>
+      <tr><td>计算机科学与技术</td><td>25年12月</td><td><b style="color:var(--red)">83.5</b></td></tr>
+      <tr><td>汉语言文学（师范）</td><td>25年12月</td><td>81.5</td></tr>
+      <tr><td>法学</td><td>25年12月</td><td>80.5</td></tr>
+      <tr><td>自动化</td><td>25年12月</td><td>79.5</td></tr>
+      <tr><td>电气工程及其自动化</td><td>25年12月</td><td>78.5</td></tr>
+      <tr><td>英语（师范）</td><td>25年12月</td><td>78.5</td></tr>
+      <tr><td>数据科学与大数据技术</td><td>25年12月</td><td>77.0</td></tr>
+      <tr><td>会计学</td><td>25年12月</td><td>77.0</td></tr>
+      <tr><td>机器人工程</td><td>25年12月</td><td>74.5</td></tr>
+      <tr><td>人工智能</td><td>25年12月</td><td>74.5</td></tr>
+      <tr><td>口腔医学</td><td>24年12月</td><td>74.0</td></tr>
+      <tr><td>医学影像学</td><td>24年12月</td><td>73.0</td></tr>
+      <tr><td>人工智能（科大讯飞联培）</td><td>25年12月</td><td>73.0</td></tr>
+      <tr><td>软件工程（中澳学分互认）</td><td>25年12月</td><td>73.0</td></tr>
+      <tr><td>儿科学</td><td>24年12月</td><td>70.0</td></tr>
+    </table></div>
+    <p class="muted" style="margin-top:8px">多数学院要求英语≥60分获得资格，热门专业实际录取线远高于此。完整版分数线汇总在资料包里。</p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px">🧭 两个志愿怎么填？（顺序志愿，不是平行志愿！）</h3>
+    <ul class="check" style="margin-top:8px">
+      <li><b>一志愿</b>填最想去的专业，权重远大于二志愿</li>
+      <li><b>二志愿</b>填"自己能接受的冷门专业"——只有一志愿落榜且该专业没招满时才生效</li>
+      <li>两个志愿可跨学院填，不限同学院</li>
+    </ul>
+    <ul class="cross">
+      <li>误区1：当平行志愿，两个都填热门 → 二志愿直接作废</li>
+      <li>误区2：二志愿赌热门捡漏 → 临床/计算机/法学等一志愿必录满，无漏可捡</li>
+      <li>误区3：二志愿随手填个无法接受的冷门 → 一志愿落榜会被直接录取过去</li>
+      <li>误区4：两志愿填同一专业 → 毫无作用，浪费名额</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px">🚪 你的专业能往哪转？（按原专业数学课看）</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>原专业数学</th><th>可转范围</th></tr>
+      <tr><td><b>高数A</b></td><td>全校专业任你挑</td></tr>
+      <tr><td><b>高数B</b></td><td>除信息科学技术学院的电子信息工程、通信工程、物联网工程外都能转</td></tr>
+      <tr><td><b>高数C / 医用高数</b></td><td>可转电气与自动化、纺织服装、公共卫生、地理科学、药学、医学院、交通与土木、商（管理）、数学与统计、物理科学与技术、人工智能与计算机、生命科学（海洋）、文、马克思、教科、外国语、护理与康复等学院</td></tr>
+      <tr><td><b>不学数学</b></td><td>看高考选科：物理+不限 / 物理+化学 对应不同学院范围；历史类考生可转历史类专业</td></tr>
+    </table></div>
+    <ul class="clean" style="margin-top:10px">
+      <li><b>学院资格要求举例：</b>信科院需过《高数A》或《数学分析》；微电子需过《高数A/B》；人工智能与计算机学院要求高考选考物理；机械学院需已通过高数A（一）或B（一）且非艺体类；化学化工学院要求高中修化学且化学、物理为高考科目</li>
+      <li><b>特殊规则：</b>化学化工学院大一上基本只能院内转；体育学院需额外体测（800米+立定三级跳）；艺术类只能艺术类内转；中外合作只能中外内转；专升本不能转</li>
+      <li><b>考专业素质的学院：</b>化学化工（基础化学笔试）、医学院（高中化学+生物）、商学院（高中数学/文史）、艺术学院（速写/演奏）、历史文化·法学（逻辑写作笔试）、数学与统计（大学数学）</li>
+    </ul>
+    <div class="hr"></div>
+    <h3 style="font-size:16px">🔢 哪些专业学高数A/B/C？（转专业&预习必备）</h3>
+    <input class="search-box" placeholder="🔍 搜索你的专业，看学不学高数" onkeyup="filterTable(this,'mathTable')">
+    <div class="tbl-wrap" style="max-height:340px;overflow-y:auto"><table id="mathTable">
+      <tr><th>专业</th><th>数学课程</th></tr>
+      <tr><td>计算机科学与技术 / 软件工程 / 物联网工程 / 数据科学与大数据技术 / 人工智能</td><td>高等数学A</td></tr>
+      <tr><td>电子信息工程 / 通信工程 / 电子科学与技术 / 集成电路设计与集成系统 / 光电信息科学与工程</td><td>高等数学A</td></tr>
+      <tr><td>电气工程及其自动化 / 自动化 / 机器人工程 / 智能制造工程 / 智能视觉工程</td><td>高等数学A</td></tr>
+      <tr><td>机械工程 / 机械电子工程 / 测控技术与仪器 / 土木工程 / 工程管理 / 交通工程 / 交通设备与控制工程</td><td>高等数学A</td></tr>
+      <tr><td>物理学（师范） / 国际经济与贸易 / 会计学</td><td>高等数学A</td></tr>
+      <tr><td>化学（师范） / 应用化学 / 高分子材料与工程 / 新能源材料与器件 / 功能材料</td><td>高等数学B</td></tr>
+      <tr><td>地理科学（师范） / 地理信息科学 / 环境科学 / 智能医学工程</td><td>高等数学B</td></tr>
+      <tr><td>纺织工程 / 轻化工程 / 非织造材料与工程 / 服装设计与工程</td><td>高等数学B</td></tr>
+      <tr><td>生物技术 / 生物科学（师范） / 工业设计 / 建筑学</td><td>高等数学C</td></tr>
+      <tr><td>数学与应用数学（含师范） / 应用统计学</td><td>数学分析</td></tr>
+      <tr><td>临床医学 / 口腔医学（医学统计学） / 医学影像学 / 儿科学 / 基础医学 / 药学 / 药物制剂</td><td>医用高等数学</td></tr>
+      <tr><td>法学 / 汉语言文学（含师范） / 新闻学 / 英语（含师范） / 商务英语 / 日语 / 汉语国际教育</td><td>不学高数</td></tr>
+      <tr><td>历史学（师范） / 思想政治教育（师范） / 学前教育（师范） / 小学教育（师范） / 体育教育（师范）</td><td>不学高数</td></tr>
+      <tr><td>视觉传达设计 / 环境设计 / 数字媒体艺术 / 服装与服饰设计 / 美术学（含师范） / 音乐学（师范） / 音乐表演</td><td>不学高数</td></tr>
+    </table></div>
+    <button class="btn btn-primary" style="margin-top:12px;font-size:14px;padding:11px 20px" onclick="openWx()">🚀 领转专业全套资料（真题+面试题库+分数线）</button>
+  </div>
+</section>
+
+<!-- ================= 保研 ================= -->
+<section id="baoyan">
+  <div class="sec-head">
+    <div class="ico">🎓</div>
+    <h2>保研政策早知道<small>大一就按这个标准卷，大四躺赢</small></h2>
+  </div>
+  <div class="card">
+    <div class="kv"><span>📊 通大保研率约5%</span><span>📏 综合成绩 = 学业95分 + 素质5分</span></div>
+    <ul class="clean">
+      <li><b>成绩排名：</b>专业核心课+学位课绩点排名<b>本专业前20%</b>，且所有课程首次考试无不及格（缓考按9折算）</li>
+      <li><b>英语门槛：</b>CET-4 ≥ 425分（或雅思5.5/托福75），外语专业要求专四良好及以上——<b>大一就把四级过了！</b></li>
+      <li><b>品德红线：</b>无考试作弊、无处分记录，思想品德考核一票否决</li>
+      <li><b>素质加分（最多5分）：</b>核心期刊论文/发明专利（1分）、学科竞赛（国创赛、挑战杯、数学建模、外研社杯等省二以上，1分）、参军入伍（1分）、省级以上志愿服务表彰（1分）、国际组织实习（1分）</li>
+    </ul>
+    <div class="quote">💡 <b>学长建议：</b>保研看的是前三学年一贯表现。大一起守住绩点、大二跟老师做科研打竞赛、大三冲论文——每一步都算数。政策原文和学院细则已放进资料包。</div>
+  </div>
+</section>
+
+<!-- ================= 社团 ================= -->
+<section id="clubs">
+  <div class="sec-head">
+    <div class="ico">🎪</div>
+    <h2>百团大战·社团名录<small>150+社团，官Q联系方式完整版在资料包</small></h2>
+  </div>
+  <div class="card">
+    <div class="club-cats">
+      <button class="active" data-club="art">🎨 艺术类</button>
+      <button data-club="sport">⚽ 竞技运动</button>
+      <button data-club="study">📚 理论学习</button>
+      <button data-club="tech">🔬 科技制作</button>
+      <button data-club="practice">🤝 社会实践</button>
+      <button data-club="love">💗 公益服务</button>
+      <button data-club="mix">🌈 综合</button>
+    </div>
+    <div class="club-tags" id="club-art">
+      <span>雏凤文学社</span><span>集樱动漫社</span><span>K.O.D街舞社</span><span>F.C街舞联盟</span><span>追影舞蹈艺术协会</span><span>Fingershow吉他社</span><span>六弦吉他社</span><span>华夏衣冠汉服社</span><span>晴天话剧社</span><span>惊雷话剧社</span><span>凛音会</span><span>唇枪舌剑BeatBox社</span><span>志乐相声社</span><span>书法研习社</span><span>江海书画社</span><span>魔术骑士社</span><span>H·O·T舞团</span><span>粤韵社</span>
+    </div>
+    <div class="club-tags" id="club-sport" style="display:none">
+      <span>南通大学长跑协会</span><span>自行车协会</span><span>FreeStyle轮滑社</span><span>N.E花式篮球社</span><span>狂飙乒乓球社</span><span>T.T.E羽毛球社</span><span>羽毛球协会</span><span>跆风道场</span><span>聚英跆拳道</span><span>AC Smash网球社</span><span>K8台球社</span><span>桌游社</span><span>卓越棋社</span><span>ICE啦啦操</span><span>足球俱乐部</span><span>龙云武术社团</span><span>美伦瑜伽社</span><span>泳无止境游泳社</span>
+    </div>
+    <div class="club-tags" id="club-study" style="display:none">
+      <span>外语俱乐部</span><span>英语辩论社</span><span>翻译协会</span><span>法学社</span><span>梦之翼外语天堂</span><span>筑梦考研服务联合社</span><span>青年马克思主义理论研究会</span><span>时事政治研究会</span><span>科研互动指导中心</span>
+    </div>
+    <div class="club-tags" id="club-tech" style="display:none">
+      <span>创客协会</span><span>程序竞赛协会</span><span>数学建模协会</span><span>天文协会</span><span>小小草IT科技社</span><span>DIY电子创新俱乐部</span><span>模型社团</span><span>MOONCHILD摄影学院</span><span>milk摄影社</span><span>网络管理协会</span>
+    </div>
+    <div class="club-tags" id="club-practice" style="display:none">
+      <span>绿色方舟环保社团</span><span>新农村建设促进会</span><span>卫生预防协会</span><span>第二课堂</span><span>i通大电商社团</span><span>公共关系协会</span><span>投资俱乐部</span><span>新媒体创就业社</span><span>公共管理协会</span>
+    </div>
+    <div class="club-tags" id="club-love" style="display:none">
+      <span>伯藜学社</span><span>情系村小爱心助教社</span><span>一米阳光爱心助教社</span><span>雷锋精神研究会</span><span>诚善协会</span><span>绿色环保协会</span><span>情暖暮光爱心护老社</span><span>心晴驿站</span><span>图书馆协作管理委员会</span>
+    </div>
+    <div class="club-tags" id="club-mix" style="display:none">
+      <span>大学生心理协会</span><span>辩论社</span><span>莫停箸美食社</span><span>D.I.Y美食社</span><span>军事爱好者协会</span><span>大学生礼仪协会</span><span>蜗牛户外运动社</span><span>滑板社</span><span>P·M流行音乐社</span><span>JK·DK同好会</span><span>唯你自媒体社</span><span>国标舞社</span>
+    </div>
+    <p class="muted" style="margin-top:12px">💡 开学后"百团大战"现场招新，每人建议报1-2个，贪多嚼不烂。想要<b>各社团官Q/公众号联系方式汇总表</b>？资料包里有完整版。</p>
+  </div>
+</section>
+
+<!-- ================= 防骗 ================= -->
+<section id="scam">
+  <div class="sec-head">
+    <div class="ico">⚠️</div>
+    <h2>新生防骗避坑指南<small>每年都有人中招，看完立省几千块</small></h2>
+  </div>
+  <div class="card">
+    <ul class="cross">
+      <li><b>校园卡套路：</b>学校未指定任何运营商！线上套餐与校内营业厅完全一致，警惕假冒"校园服务中心"让你扫码填信息领"校园网账号"的——官方不会这么做</li>
+      <li><b>宿舍上门推销：</b>英语报纸征订、劣质被褥、"学姐"卖课卖笔，礼貌拒绝即可；真需要床品找靠谱渠道比质比价</li>
+      <li><b>兼职先交钱：</b>押金、培训费、会费，凡是先交钱的兼职都是坑；刷单返利=诈骗</li>
+      <li><b>冒充老师/辅导员：</b>电话里让转账、交"保证金"的一律挂断，先找辅导员核实</li>
+      <li><b>违规电器别侥幸：</b>电煮锅、卷发棒、大功率吹风机，查到通报处分，还影响转专业和评优</li>
+      <li><b>个人信息别乱填：</b>扫码领礼品、来历不明的"新生群"，可能倒卖你的手机号</li>
+    </ul>
+    <div class="hr"></div>
+    <ul class="check">
+      <li>认准官方渠道：录取通知书内的材料、学院官网、辅导员通知</li>
+      <li>遇到拿不准的事，先问辅导员或靠谱学长学姐，再掏钱</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="sec-head">
+    <div class="ico">❓</div>
+    <h2>新生高频问题<small>评论区问得最多的都在这</small></h2>
+  </div>
+  <details class="acc"><summary>我被录取的专业在哪个校区？</summary><div class="acc-body">多数非医学专业大一在启东校区就读，大二整体搬迁啬园主校区；医学、护理类专业在启秀校区；啬园校区是行政和教学主中心。具体以录取通知书和学院通知为准。</div></details>
+  <details class="acc"><summary>宿舍是几人间？有独卫空调吗？</summary><div class="acc-body">启东：4/6人间上床下桌，独卫+空调，条件最好；啬园：6人间为主上床下桌，女生楼多独卫，男生楼层大澡堂，空调全覆盖；启秀北区：6/8人间上下铺，无独卫，公共澡堂，住宿费约500元/年。</div></details>
+  <details class="acc"><summary>转专业难不难？什么时候开始准备？</summary><div class="acc-body">大一上11月报名、12月初英语统考。英语难度四六级之间，2026年6月平均分72，临床84、计算机83.5、法学80.5。想转热门专业，暑假就该开始刷四级词汇和真题。前提：大一上不挂科、无处分。</div></details>
+  <details class="acc"><summary>大一能考四级吗？四级重要吗？</summary><div class="acc-body">非常重要：保研要求四级≥425，转专业英语考试难度对标四六级，评优入党也看。建议开学就背单词，能早报就早报，趁高考英语底子还在一次过。</div></details>
+  <details class="acc"><summary>校园卡（电话卡）要不要办？</summary><div class="acc-body">自愿办理，学校未指定运营商。流量够用可不办；想用校园宽带（100M不限流量，仅限南通本地号+校园套餐）建议线上提前办，到校不用排队。警惕任何自称"校园服务中心"的扫码登记。</div></details>
+  <details class="acc"><summary>启东校区偏吗？周末能去哪玩？</summary><div class="acc-body">实话：偏。周边是居民区和产业园，无地铁，进城约1小时。但校内麦当劳瑞幸711都有，操场能看海，适合安静学习。大二就搬啬园主校区了，把大一当成沉淀期很值。</div></details>
+  <details class="acc"><summary>军训多久？严不严？</summary><div class="acc-body">约两周（开学典礼后）。鞋垫、防晒、大水壶三件套必备；身体不适随时打报告，不要硬撑。详细生存指南见上文军训板块。</div></details>
+  <details class="acc"><summary>新生群/资料怎么领？有问题找谁问？</summary><div class="acc-body">点页面右下角「🎁 领资料包」按钮，按提示操作即可：转专业真题、四六级资料、开学清单PDF、社团联系方式表等资料包免费发你，还能进新生交流群。校区、宿舍、报到、转专业有任何不明白的，也可以直接提问，看到就回～</div></details>
+</section>
+
+<!-- ================= 底部 CTA ================= -->
+<div class="final-cta">
+  <h3>🎁 资料包限免领取中</h3>
+  <p>转专业真题 · 四六级资料 · 开学清单PDF · 宿舍实拍 · 社团联系方式 · 保研政策<br>全部免费，10 秒领到</p>
+  <button class="btn btn-primary" onclick="openWx()">立即领取 →</button>
+</div>
+
+<footer>
+  本页面由通大在读学长学姐公益整理，非学校官方页面<br>
+  信息基于2025-2026学年公开资料，如有变动以南通大学官方通知为准<br>
+  觉得有用就转发给同届的 TA 吧 💙
+</footer>
+</main>
+
+<!-- ================= 悬浮按钮 ================= -->
+<div class="fab">
+  <button class="fab-top" onclick="scrollToTop()">↑ 顶部</button>
+  <button class="fab-main" onclick="openWx()">🎁 领资料包</button>
+</div>
+
+<!-- ================= 弹窗 ================= -->
+<div class="mask" id="wxMask" onclick="if(event.target===this)closeWx()">
+  <div class="sheet">
+    <h3>🎁 领取资料包 / 提问答疑</h3>
+    <div class="wx-big" style="font-size:17px;letter-spacing:0;line-height:1.9;padding:18px 14px">
+      ① 点我头像，<b style="color:var(--orange)">关注</b>一下防走丢<br>
+      ② <b style="color:var(--orange)">私信发送「新生」</b>两个字<br>
+      ③ 全套资料包直接发你，还能进新生交流群
+    </div>
+    <p class="tips">转专业真题 · 四六级资料 · 开学清单 · 宿舍实拍 · 社团表 · 保研政策<br>有任何问题也可以直接私信问，看到就回 💙</p>
+    <div class="row">
+      <button class="cp" onclick="closeWx()">好的，马上去私信</button>
+      <button class="close" onclick="closeWx()">再看看</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">已复制</div>
+
+<script>
+
+/* ================================================================ */
+
+/* ===== 分享传播 ===== */
+function sharePage(){
+  var data = { title: document.title, text: "南通大学新生通关宝典：校区宿舍真相+报到+军训+转专业全攻略，新生必存！", url: location.href };
+  if(navigator.share){
+    navigator.share(data).catch(function(){});
+  }else{
+    copyText(location.href, null);
+    toast("链接已复制，发给同学吧");
+  }
+}
+function copyLink(btn){ copyText(location.href, btn); }
+
+function toast(msg){
+  var t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(function(){ t.classList.remove("show"); }, 2000);
+}
+function copyText(txt, btn){
+  function done(){
+    toast("已复制，快去粘贴分享吧");
+    if(btn){ var old = btn.textContent; btn.textContent = "已复制 ✓";
+      setTimeout(function(){ btn.textContent = old; }, 1800); }
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); done();
+  }
+}
+function openWx(){ document.getElementById("wxMask").classList.add("show"); }
+function closeWx(){ document.getElementById("wxMask").classList.remove("show"); }
+function scrollToTop(){ window.scrollTo({top:0, behavior:"smooth"}); }
+
+/* ===== 阅读进度条 + 目录高亮 ===== */
+var chips = document.querySelectorAll("#chips a");
+var secs = [];
+chips.forEach(function(a){
+  var id = a.getAttribute("href").slice(1);
+  var el = document.getElementById(id);
+  if(el) secs.push({a:a, el:el});
+});
+window.addEventListener("scroll", function(){
+  var h = document.documentElement;
+  var p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+  document.getElementById("progress").style.width = p + "%";
+  var cur = null;
+  secs.forEach(function(s){ if(s.el.getBoundingClientRect().top < 120) cur = s; });
+  chips.forEach(function(a){ a.classList.remove("active"); });
+  if(cur) cur.a.classList.add("active");
+}, {passive:true});
+
+/* ===== 校区 tabs ===== */
+document.querySelectorAll(".tabs button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".tabs button").forEach(function(b){ b.classList.remove("active"); });
+    btn.classList.add("active");
+    document.querySelectorAll(".campus").forEach(function(c){ c.style.display = "none"; });
+    document.getElementById("c-" + btn.dataset.c).style.display = "block";
+  });
+});
+
+/* ===== 社团 tabs ===== */
+document.querySelectorAll(".club-cats button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".club-cats button").forEach(function(b){ b.classList.remove("active"); });
+    btn.classList.add("active");
+    document.querySelectorAll(".club-tags").forEach(function(t){ t.style.display = "none"; });
+    document.getElementById("club-" + btn.dataset.club).style.display = "flex";
+  });
+});
+
+/* ===== 表格搜索 ===== */
+function filterTable(input, tableId){
+  var kw = input.value.trim().toLowerCase();
+  var rows = document.getElementById(tableId).querySelectorAll("tr");
+  rows.forEach(function(tr, i){
+    if(i === 0) return;
+    tr.style.display = tr.textContent.toLowerCase().indexOf(kw) > -1 ? "" : "none";
+  });
+}
+
+/* ===== 开学清单（localStorage 持久化） ===== */
+var CK_DATA = [
+  {cat:"🪪 证件档案（随身带，别托运）", items:["录取通知书","高考准考证","身份证+复印件×4","户口本本人页复印件×4","一寸照12张+二寸照4张","团员档案+学生档案","银行卡+少量现金"]},
+  {cat:"🛏️ 住宿床品", items:["被子/空调被","枕头+枕套","床单被单×2","蚊帐","凉席","床垫或棉絮"]},
+  {cat:"🧴 洗护日用", items:["牙刷牙膏漱口杯","毛巾×2+浴巾","洗发水+沐浴露","洗面奶+护肤品","洗衣液+肥皂盒","盆子×2+桶","衣架+环形衣架+夹子","挂钩+粘钩","纸巾+湿巾","拖鞋","雨伞+遮阳伞","指甲剪+小剪刀"]},
+  {cat:"💊 医药健康", items:["感冒药+退烧药","肠胃药","创可贴+棉签+绷带","云南白药","花露水+风油精","痛经药（女生）","常用药（个人）"]},
+  {cat:"🪖 军训专项", items:["防晒霜（带PA值）","软鞋垫×2","大容量水壶","小手帕/纸巾","润喉糖","吸汗背心+爽身粉"]},
+  {cat:"💻 电子文具", items:["手机+充电器+耳机","充电宝","U盘","护眼台灯","小风扇","电脑（按专业需要）","黑色中性笔+笔芯","笔记本×2","便利贴+文件袋"]},
+  {cat:"👕 衣物鞋帽", items:["夏季衣物","秋季外套×2","内衣袜子多备","运动鞋+休闲鞋","睡衣","皮带"]}
+];
+var ckState = {};
+try{ ckState = JSON.parse(localStorage.getItem("ntu_ck") || "{}"); }catch(e){ ckState = {}; }
+var ckArea = document.getElementById("ck-area");
+CK_DATA.forEach(function(group, gi){
+  var div = document.createElement("div");
+  div.className = "ck-cat";
+  var h = document.createElement("h4");
+  h.innerHTML = group.cat + ' <span class="cnt" id="ck-cnt-' + gi + '"></span>';
+  div.appendChild(h);
+  var grid = document.createElement("div");
+  grid.className = "ck-grid";
+  group.items.forEach(function(item, ii){
+    var key = gi + "-" + ii;
+    var label = document.createElement("label");
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = !!ckState[key];
+    var span = document.createElement("span");
+    span.textContent = item;
+    if(cb.checked) label.classList.add("done");
+    cb.addEventListener("change", function(){
+      ckState[key] = cb.checked;
+      label.classList.toggle("done", cb.checked);
+      try{ localStorage.setItem("ntu_ck", JSON.stringify(ckState)); }catch(e){}
+      updateCk();
+    });
+    label.appendChild(cb); label.appendChild(span);
+    grid.appendChild(label);
+  });
+  div.appendChild(grid);
+  ckArea.appendChild(div);
+});
+function updateCk(){
+  var total = 0, done = 0;
+  CK_DATA.forEach(function(g, gi){
+    var d = 0;
+    g.items.forEach(function(_, ii){
+      total++;
+      if(ckState[gi + "-" + ii]){ done++; d++; }
+    });
+    var cnt = document.getElementById("ck-cnt-" + gi);
+    if(cnt) cnt.textContent = d + "/" + g.items.length;
+  });
+  var pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById("ck-bar").style.width = pct + "%";
+  document.getElementById("ck-label").textContent = "已完成 " + pct + "%（" + done + "/" + total + "）";
+}
+function resetCk(){
+  ckState = {};
+  try{ localStorage.removeItem("ntu_ck"); }catch(e){}
+  document.querySelectorAll("#ck-area input[type=checkbox]").forEach(function(cb){
+    cb.checked = false; cb.parentElement.classList.remove("done");
+  });
+  updateCk(); toast("已清空，重新勾选吧");
+}
+updateCk();
+</script>
+</body>
+</html>
