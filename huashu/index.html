@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>星火校园·承接SOP话术库</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+:root {
+  --blue:#1E63E9; --dark-blue:#0F3482; --mid-blue:#4A8AF0; --light-blue:#E8F1FF;
+  --pale-blue:#F4F8FF; --yellow:#F0B429; --green:#2EA85C; --red:#E04A4A;
+  --text:#222; --gray:#666; --line:#DCE6F8;
+}
+body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:#EEF3FB; color:var(--text); font-size:15px; line-height:1.6; padding-bottom:70px; }
+
+/* 顶部 */
+.topbar { position:sticky; top:0; z-index:100; background:linear-gradient(135deg,var(--blue),var(--dark-blue)); color:#fff; padding:14px 16px 12px; box-shadow:0 2px 12px rgba(15,52,130,.25); }
+.topbar h1 { font-size:18px; font-weight:700; display:flex; align-items:center; gap:8px; }
+.topbar .sub { font-size:12px; opacity:.85; margin-top:2px; }
+.search-box { margin-top:10px; position:relative; }
+.search-box input { width:100%; padding:10px 38px 10px 14px; border:none; border-radius:22px; font-size:14px; background:rgba(255,255,255,.95); outline:none; }
+.search-box input::placeholder { color:#9db3d9; }
+.search-box .sicon { position:absolute; right:13px; top:50%; transform:translateY(-50%); font-size:16px; color:var(--blue); }
+
+/* 阶段导航 */
+.nav-wrap { position:sticky; top:118px; z-index:99; background:rgba(238,243,251,.97); backdrop-filter:blur(6px); padding:10px 0 6px; }
+.nav { display:flex; gap:8px; overflow-x:auto; padding:0 14px 4px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.nav::-webkit-scrollbar { display:none; }
+.nav-item { flex:0 0 auto; padding:8px 15px; background:#fff; border:1.5px solid var(--line); border-radius:20px; font-size:13px; font-weight:600; color:var(--gray); white-space:nowrap; cursor:pointer; transition:all .2s; }
+.nav-item.active { background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 3px 10px rgba(30,99,233,.35); }
+.nav-item .num { display:inline-block; width:18px; height:18px; line-height:18px; text-align:center; background:rgba(30,99,233,.12); color:var(--blue); border-radius:50%; font-size:11px; margin-right:5px; }
+.nav-item.active .num { background:rgba(255,255,255,.25); color:#fff; }
+
+/* 主内容 */
+.container { max-width:760px; margin:0 auto; padding:8px 14px; }
+
+/* 阶段卡片 */
+.stage { background:#fff; border-radius:16px; margin:14px 0; overflow:hidden; box-shadow:0 2px 10px rgba(30,99,233,.07); border:1px solid #E3EDFC; }
+.stage-head { display:flex; align-items:center; gap:10px; padding:15px 16px; cursor:pointer; background:linear-gradient(135deg,#F6F9FF,#EDF4FF); border-bottom:1px solid var(--line); user-select:none; }
+.stage-head .badge { flex:0 0 auto; width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--mid-blue)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; }
+.stage-head .info { flex:1; min-width:0; }
+.stage-head .title { font-size:16px; font-weight:700; color:var(--dark-blue); }
+.stage-head .desc { font-size:12px; color:var(--gray); margin-top:1px; }
+.stage-head .arrow { flex:0 0 auto; font-size:14px; color:var(--blue); transition:transform .25s; }
+.stage.collapsed .stage-head .arrow { transform:rotate(-90deg); }
+.stage-body { padding:12px 14px; }
+.stage.collapsed .stage-body { display:none; }
+
+/* 分组标题 */
+.group-title { font-size:13px; font-weight:700; color:var(--blue); margin:14px 0 8px; padding-left:9px; border-left:3px solid var(--blue); }
+.group-title:first-child { margin-top:2px; }
+
+/* 话术卡片 */
+.script { background:var(--pale-blue); border:1px solid #D5E3FA; border-radius:12px; padding:11px 12px; margin:9px 0; position:relative; }
+.script .label { display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--mid-blue); padding:3px 9px; border-radius:11px; margin-bottom:7px; }
+.script .text { font-size:14px; line-height:1.75; color:#222; white-space:pre-wrap; word-break:break-word; }
+.copy-btn { position:absolute; top:9px; right:9px; border:none; background:#fff; color:var(--blue); font-size:12px; font-weight:600; padding:5px 12px; border-radius:14px; cursor:pointer; border:1px solid var(--line); transition:all .2s; box-shadow:0 1px 4px rgba(30,99,233,.1); }
+.copy-btn:active { transform:scale(.94); }
+.copy-btn.copied { background:var(--green); color:#fff; border-color:var(--green); }
+
+/* 对话气泡 */
+.bubble { max-width:88%; padding:9px 12px; border-radius:12px; margin:8px 0; font-size:14px; line-height:1.65; }
+.bubble .who { font-size:11px; font-weight:700; opacity:.75; margin-bottom:3px; }
+.bubble.stu { background:#F0F0F0; color:#333; border-bottom-left-radius:4px; }
+.bubble.team { background:linear-gradient(135deg,var(--blue),var(--mid-blue)); color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+
+/* 提示框 */
+.tip { padding:10px 12px; border-radius:0 10px 10px 0; margin:10px 0; font-size:13px; line-height:1.65; border-left:4px solid; }
+.tip .tt { font-weight:700; margin-bottom:3px; display:block; }
+.tip.y { background:#FFF7E8; border-color:var(--yellow); color:#8a6100; }
+.tip.g { background:#EAF7EF; border-color:var(--green); color:#1e7a41; }
+.tip.r { background:#FDEEEE; border-color:var(--red); color:#b03030; }
+.tip.b { background:var(--light-blue); border-color:var(--blue); color:var(--dark-blue); }
+
+/* 表格 */
+table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; background:#fff; }
+th, td { padding:9px 10px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+th { background:var(--light-blue); color:var(--dark-blue); font-weight:700; }
+
+/* 复制成功Toast */
+.toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%) translateY(20px); background:rgba(15,52,130,.95); color:#fff; padding:10px 22px; border-radius:24px; font-size:13px; opacity:0; transition:all .3s; z-index:200; pointer-events:none; }
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* 返回顶部 */
+.back-top { position:fixed; bottom:20px; right:16px; width:44px; height:44px; border-radius:50%; background:var(--blue); color:#fff; border:none; font-size:20px; cursor:pointer; box-shadow:0 4px 14px rgba(30,99,233,.4); z-index:150; display:none; align-items:center; justify-content:center; }
+.back-top.show { display:flex; }
+
+/* 空结果 */
+.empty { text-align:center; padding:50px 20px; color:var(--gray); }
+.empty .icon { font-size:44px; margin-bottom:10px; }
+
+mark { background:#FFE58F; padding:0 2px; border-radius:2px; }
+.hidden-by-search { display:none !important; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>🔥 星火校园·承接SOP话术库</h1>
+  <div class="sub">南通大学新媒体俱乐部 · 暑期新生引流 · 点话术右侧按钮一键复制</div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 搜索话术关键词（如：卖课 / 零基础 / 159）">
+    <span class="sicon">⌕</span>
+  </div>
+</div>
+
+<div class="nav-wrap"><div class="nav" id="nav"></div></div>
+<div class="container" id="content"></div>
+<div class="toast" id="toast">✅ 已复制，去粘贴吧</div>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ================= 话术数据 ================= */
+const STAGES = [
+{id:1, num:"1", title:"评论区互动", desc:"公域引流·自报身份给价值", groups:[
+  {name:"📝 场景A：新生问录取", items:[
+    {label:"你这样回", text:"哈喽～我是通大在读学长，你是报考通大了嘛？😊"},
+    {label:"对方分数稳了", text:"那稳了！这个专业去年分数线比这低👍 对了，我加你个微信吧，有些通大的资料可以发你（选课攻略、宿舍情况、转专业政策什么的）"},
+    {label:"对方分数有点悬", text:"嗯……这个分数确实有点悬，不过也别太焦虑，可以先等等看。要不咱先加个微信？后面录取有什么新消息我也可以第一时间告诉你"}
+  ]},
+  {name:"📝 场景B：新生问宿舍/专业", items:[
+    {label:"你这样回", text:"我是通大XX学院的学长，可以跟你说说～你报的什么专业呀？（不同专业住的校区不太一样）"},
+    {label:"评论区解答1-2轮后", text:"评论区说起来不方便，我加你微信吧，详细跟你说，还有些新生攻略可以发你"}
+  ]},
+  {name:"📝 场景C：被误认为推销（危机处理）", items:[
+    {label:"你这样回", text:"哈哈哈哈不办卡不卖课😂 你们最近是不是被推销烦了？我也是这么过来的，真的就纯学长分享资料"}
+  ]},
+  {name:"🎯 核心三动作（缺一不可）", tips:[
+    {type:"b", title:"① 自报身份 ② 提供价值 ③ 给理由加微信", text:"❌ 绝对不要直接说\"加个好友吧\"（没有理由的加好友请求通过率很低）"}
+  ]}
+]},
+{id:2, num:"2", title:"加好友+建信任", desc:"有问必答·展现专业", groups:[
+  {name:"🗣️ 开场", items:[
+    {label:"通过好友后第一条【连发】", text:"哈喽～终于加上啦😊 你刚才说想了解XX，我慢慢跟你说哈"}
+  ]},
+  {name:"💬 高频问题答复模板（每条2-3句话，别发一大段）", items:[
+    {label:"问：通大XX专业怎么样？", text:"挺不错的，这个专业在省里排名挺靠前的，就业也不错。你是被这个专业录了还是准备转过来呀？"},
+    {label:"问：宿舍条件怎么样？", text:"新生一般住老校区，4-6人间，有空调有独立卫浴，不算豪华但够用。你是哪个专业的？我帮你看下具体住哪个楼"},
+    {label:"问：转专业难不难？", text:"每个学院政策不太一样，我这有份各学院的转专业政策文件，我发你，你先看看，有不懂的再问我"},
+    {label:"问：大一学什么课？难吗？", text:"你们是XX专业的话，大一主要是XX、XX这些课。说实话不难，上课认真听基本都能过。暑假想学的话可以先背背英语四级单词，这个最实用"}
+  ]},
+  {name:"🔑 信任加深动作（答完2-3个问题后）", items:[
+    {label:"主动发资料【连发】", text:"对了，我这还有些新生攻略（选课指南、军训注意事项、学校周边美食地图什么的），我打包发你吧，反正迟早用得上😊"}
+  ]},
+  {name:"💡 应对", tips:[
+    {type:"y", title:"对方问到你不知道的问题", text:"不要瞎编！直接说：\"这个我还真不太确定，我帮你问问其他同学，晚点告诉你哈\"。承认不知道比乱编更靠谱，还能创造下次聊天机会。"},
+    {type:"g", title:"核心逻辑", text:"有问必答 + 主动给资料 = 建立\"这学长/学姐人真好\"的印象。答完2-3个问题后，就可以自然过渡到下一阶段了"}
+  ]}
+]},
+{id:3, num:"3", title:"筛意向", desc:"探测兴趣·判断匹配", groups:[
+  {name:"🗣️ 自然过渡话术（解答完问题后）", items:[
+    {label:"第1条", text:"对了，你平时刷抖音或者B站多吗？"},
+    {label:"对方说\"挺多的\"", text:"那有没有想过自己也做做视频或者内容什么的？"},
+    {label:"对方说\"想过但不知道怎么开始\"", text:"哈哈那很正常，谁一开始都不会。你对大学有什么规划吗？除了上课之外想不想学点别的技能？"},
+    {label:"对方说\"想学点实用的\"", text:"那你有没有想过学新媒体？这个技能现在挺吃香的，而且不管你是什么专业都用得上"},
+    {label:"备选：对方话少时用MBTI破冰", text:"诶对了，问你个事，你是I人还是E人呀哈哈😂"}
+  ]},
+  {name:"🎯 意向判断标准（两条同时满足才是目标人群）", tips:[
+    {type:"b", title:"✓ 对新媒体感兴趣 + ✓ 想成长/想赚钱", text:"✅ 两条都满足 → 进入阶段4（引出俱乐部）\n⏸️ 只满足一条 → 继续聊，先别急着推\n❌ 都不满足 → 保持友好关系即可，不用推"}
+  ]}
+]},
+{id:4, num:"4", title:"丝滑过渡", desc:"引出俱乐部", groups:[
+  {name:"🗣️ 标准过渡话术（对方表示感兴趣后立即用）", items:[
+    {label:"第1条【连发】", text:"那正好！我们在通大有一个新媒体俱乐部，最近在招新"},
+    {label:"第2条（发完等回应）", text:"是专门带大家零基础学新媒体的，你有没有兴趣了解一下？"}
+  ]},
+  {name:"💬 三种情况应对", items:[
+    {label:"对方主动问\"你在搞自媒体？\"（最理想）", text:"嗯呐，我在我们学校的新媒体俱乐部，正好最近在招新。你对这个感兴趣？"},
+    {label:"对方说\"我再想想/先不了\"", text:"没事不着急😊 你可以先加我们的新生群感受下氛围，群里会发一些新媒体的学习资料，觉得合适再说，不合适随时退"}
+  ]},
+  {name:"⚠️ 三个禁忌", tips:[
+    {type:"r", title:"过渡期三不要", text:"❌ 不要新生刚说\"感兴趣\"就立刻发一大段俱乐部介绍（太急迫）\n❌ 不要说\"我觉得你特别适合\"（太假，像推销）\n❌ 不要对方还没表态就连续发好几条（给对方回应空间）"}
+  ]}
+]},
+{id:5, num:"5", title:"四大板块介绍", desc:"核心·15条话术", groups:[
+  {name:"🗣️ 开场（1条）", items:[
+    {label:"第1条【连发】", text:"那我跟你大概说下我们俱乐部的情况哈，你慢慢看😊"}
+  ]},
+  {name:"🎯 板块1：能收获什么（4条）", items:[
+    {label:"第1条【连发】", text:"我们俱乐部说白了就是一伙对新媒体感兴趣的人凑一块儿，主要带大家学三样东西：拍摄剪辑、账号运营、个人IP打造"},
+    {label:"第2条【连发】", text:"具体点就是：怎么用手机拍出好看的画面、怎么用剪映/PR剪出成片、怎么做抖音小红书账号、怎么涨粉变现，这些都会教"},
+    {label:"第3条【连发】", text:"不会也没关系哈，大家都是零基础进来的，学长学姐手把手教，从怎么拍第一条视频开始带。我当初进来的时候也是啥都不会😂"},
+    {label:"第4条【连发完等回复】", text:"而且我们不只是学东西，平时会一起接一些真实的项目来做，比如给企业拍宣传片、帮商家做账号代运营这种。做得好的话还有项目分成，等于边学边赚点零花钱。做的过程里团队协作、项目执行这些能力也都能练到，以后写简历也用得上"},
+    {label:"追问：什么项目？", text:"比如之前有接过企业宣传片的单子，还有帮本地商家做抖音号这种。都是我们团队一起做的，学长带着做，不会让你一个人瞎摸索。项目做完了会有分成，具体多少看项目大小"},
+    {label:"追问：个人IP是什么？", text:"简单说就是打造你自己的账号，让别人认识你。比如你对美妆感兴趣，就可以做个美妆号；喜欢打游戏，可以做游戏解说。等你账号做起来了，以后不管找工作还是接单都有帮助"}
+  ]},
+  {name:"🏢 板块2：俱乐部背景（3条）", items:[
+    {label:"第1条【连发】", text:"对了跟你说下我们的背景哈，省得你担心我们是那种不靠谱的组织哈哈"},
+    {label:"第2条【连发】", text:"我们背后是晓晨聊大学，你在B站上可能刷到过，50多万粉丝，专门帮大学生做职业规划的。他们创始人董晓晨老师，走访了150场大学招聘会，聊了1000多个大学生，是东南大学好几所高校的职业规划外聘专家，经常被邀请去各个大学做讲座"},
+    {label:"第3条【连发完等回复】", text:"所以我们俱乐部的培训体系、项目资源都是他们那边支持的，跟一般的学生社团还是不太一样。你可以去B站搜\"晓晨聊大学\"看看他们的视频，都是讲大学生求职、简历怎么写的，挺干货的"},
+    {label:"追问：没听过/没刷到过", text:"没事哈哈，你可以去B站搜'晓晨聊大学'看看，他们那个'真实校园招聘'系列挺火的，就是去各个大学招聘会现场拍真实情况的。我们俱乐部的培训体系就是他们那边支持的"},
+    {label:"追问：你们什么关系？", text:"我们是他们在南通大学的校园合伙人团队，相当于是他们在通大落地的俱乐部。他们能给我们提供培训资源、项目资源，我们负责在通大具体落地执行"}
+  ]},
+  {name:"⚖️ 板块3：与其他社团区别（2条）", items:[
+    {label:"第1条【连发】", text:"然后跟学生会那些不太一样的是，我们这边没什么层级，大家都是一块做东西的，没有部长干事那些弯弯绕绕，也不用写材料、开例会走形式"},
+    {label:"第2条【连发完等回复】", text:"而且我们做的是真实项目，不是走形式。你拍出来的视频、做出来的账号，都是你自己的作品，以后找工作面试都能直接拿出来用。有些学长学姐靠这个还赚到了大学的第一桶金"},
+    {label:"追问：想加学生会冲突吗？", text:"不冲突哈，我们这边没有固定例会和强制任务，时间比较自由。很多人都是学生会+我们俱乐部两边都在的，看你自己时间安排"}
+  ]},
+  {name:"📅 板块4：活动安排（3条）", items:[
+    {label:"第1条【连发】", text:"然后跟你说下接下来的安排哈。8月中下旬我们会有2-3场线上分享，有企业的前辈来讲大学生职业规划、行业趋势这些，也有做得好的学长教大家新媒体入门，帮你开学前打个基础"},
+    {label:"第2条【连发】", text:"开学之后会有一次线下见面会，大家正式认识一下，到时候会详细讲全年的规划，还会根据每个人的情况给一个专属的成长规划，告诉你这一年可以怎么发展"},
+    {label:"第3条【连发完等回复】", text:"之后就是常态化的学习和做项目了，平时线上交流为主，有时间就多参与，忙了就先忙学业，很灵活。对了，这些安排暑期都是免费的，不收费"}
+  ]},
+  {name:"✅ 收尾（2条）", items:[
+    {label:"第1条【连发】", text:"大概就是这些了，信息有点多你慢慢消化哈哈"},
+    {label:"第2条（发完等回应）", text:"你看看感不感兴趣？有啥想了解的随时问我～"}
+  ]},
+  {name:"⚡ 极简版（对方赶时间时用，3条）", items:[
+    {label:"第1条【连发】", text:"简单说，我们俱乐部就是带大家零基础学新媒体的（拍摄剪辑、做账号这些），暑期免费，开学后一起做真实项目，做得好还有分成"},
+    {label:"第2条【连发】", text:"背景也靠谱，背后是B站50多万粉丝的晓晨聊大学，专门帮大学生做职业规划的"},
+    {label:"第3条（发完等回应）", text:"你可以先加我们的新生群感受一下，群里会通知8月的分享会，不合适随时退就行，没啥损失😊"}
+  ]}
+]},
+{id:6, num:"6", title:"新生Q&A", desc:"14问标准答复", groups:[
+  {name:"💰 钱的问题", items:[
+    {label:"Q1：是不是卖课的？后面会不会收费？", text:"哈哈哈哈 不是卖课啦😂 暑期这些分享、社群、培训全都是免费的，一分钱不收\n我们就是学校的社团组织，带大家学东西的\n说实话，开学后如果你想深入学，可能会有一些进阶的付费课程（那个是晓晨聊大学他们那边的），但那个完全是自愿的，买不买随你\n反正暑期你就放心玩，绝对不掏钱"},
+    {label:"Q2：做项目真的能赚钱吗？", text:"能赚到，但我不跟你吹牛说能月入过万哈\n实际情况是：刚进来你是学习为主，先跟着团队做，这个时候分成不多，可能就几百块零花钱\n等你技能上来了，能独立负责一块了，分成自然就多了。我们有学长一个学期下来赚了几千块，但人家是真的花时间做了\n所以说实话：能赚，但赚多少看你自己投入多少"}
+  ]},
+  {name:"🚪 门槛", items:[
+    {label:"Q3：零基础能加入吗？", text:"完全可以😊 我们俱乐部本来就是带大家从零开始的，大部分人进来之前都不懂\n前期不会让你自己单干，是先跟着团队一起做，看别人怎么做的，慢慢上手\n学长学姐会手把手教，从怎么拍第一条视频开始\n你要是真担心，可以先加新生群感受一下氛围，看看大家都在聊啥，觉得合适再决定"},
+    {label:"Q4：需要买设备吗？没相机", text:"不用不用，手机就够了😂 现在手机拍摄画质完全够用，我们很多作品都是手机拍的\n剪辑也是，手机上的剪映就能搞定大部分需求\n真到了需要专业设备的时候，团队里有，可以共用\n所以设备这块你完全不用担心"},
+    {label:"Q5：加入需要面试/考核吗？", text:"不用面试，没那么正式哈哈\n流程就是：你觉得感兴趣 → 写个简单的自我介绍（就是让大家认识你）→ 拉你进群 → 完事\n我们不看你现在会什么，主要看你想不想学。零基础完全OK"}
+  ]},
+  {name:"⏰ 时间精力", items:[
+    {label:"Q6：会不会占用很多时间？", text:"这个看你自己安排啦\n我们不像学生会那样有固定例会、强制任务，时间很灵活\n你考试周忙就少参与点，寒暑假有空就多做点\n平时主要是线上交流，有空看看群消息就行\n而且说实话，做新媒体本身也是一种学习，你剪视频、写文案这些能力，以后不管干啥都用得上。我们有些学长学姐加入后成绩反而更好了，因为时间管理能力练出来了😂"},
+    {label:"Q7：社恐/i人适合吗？", text:"哈哈我懂，我们团队里i人还挺多的😂\n做新媒体其实挺适合i人的，因为很多工作都是线上完成的：写文案、剪视频、做账号，这些都不用你抛头露面\n你不想出镜也行，可以做幕后\n而且大家都是同龄人，群里聊天也没什么压力，慢慢就熟了\n说白了，你可以按自己舒服的节奏来"},
+    {label:"Q8：怕三分钟热度坚持不下来", text:"哈哈太正常了，说实话大部分人一开始都这样\n但新媒体这个事跟健身不一样，它的反馈很快：你发的视频有播放量了、有人点赞评论了，这种成就感会推着你继续做下去\n而且我们是一群人一起做的，不是让你一个人孤军奋战。大家都在做，你自然就被带动了\n再说了，暑期就是体验期，你先来感受一下，真觉得不合适随时退出就行，又没什么损失"}
+  ]},
+  {name:"🎓 价值", items:[
+    {label:"Q9：专业跟新媒体不相关，有用吗？", text:"有用啊，而且恰恰是不相关专业的更需要\n你想啊，现在哪个行业不需要做宣传？医院要做科普号、实验室要做成果展示、企业要做产品推广\n你本专业+新媒体技能，这个组合才是稀缺人才\n而且多一项技能就多一条路。万一以后不想干本专业了，你还有新媒体这个退路，简历上也多一个亮点"},
+    {label:"Q10：我能做出自己的账号吗？能火吗？", text:"能，但我不跟你保证一定能火哈，这个说实话得看内容+一点运气\n我们能帮你的是：教你怎么定位、怎么做内容、怎么蹭热点，把能控制的部分做到最好\n团队里也有账号做起来的学长学姐，可以给你分享经验\n就算没大火，你做出的东西也是实打实的作品，面试的时候能直接拿出来，这就已经赢过大部分人了"},
+    {label:"Q11：跟学校其他新媒体社团有啥区别？", text:"嗯，最大的区别是：他们更多是帮学校做宣传，我们是带你做自己的东西\n学校官方的那些，主要是运营学校的公众号、拍学校活动，内容比较固定，你能发挥的空间有限\n我们是做真实商业项目+带你做个人账号，你学到的东西、做出的作品，都是你自己的\n再加上我们有晓晨聊大学那边的企业资源支持，能接触到真实的商业项目，这个是一般社团给不了的"}
+  ]},
+  {name:"👥 群相关", items:[
+    {label:"Q12：群里都是什么人？进群要干嘛？", text:"群里都是跟你一样对新媒体感兴趣的新生，还有一些学长学姐\n现在群里有几十个人了，各专业都有\n你加进去之后很简单：\n1. 先看群公告，了解一下基本情况\n2. 按格式发个自我介绍，让大家认识你\n3. 然后就可以随便聊了，有啥问题直接在群里问\n8月的线上分享会也会在群里通知，你等着就行"},
+    {label:"Q13：自我介绍必须发吗？不太会写", text:"哈哈理解，一开始大家都会有点不好意思\n其实这个就是走个形式，让大家认识你一下\n你就按模板简单写几句就行：叫什么、哪个专业的、哪里人、喜欢啥，几句话就搞定\n我可以发你几个别人写的例子，你参考着写，很快的\n写完你就会发现，群里很多人都挺有意思的，说不定还能找到老乡😂"},
+    {label:"Q14：我再想想/我再考虑考虑", text:"没问题呀，你慢慢考虑😊\n要不这样：你可以先加我们的新生群，群里会发8月分享会的通知，你先来听听看，感受一下\n觉得合适再正式加入，不合适退了就行，反正也不花钱\n我先把群二维码发你，你想进随时进"}
+  ]},
+  {name:"⚠️ 特别注意", tips:[
+    {type:"r", title:"对方说\"考虑考虑\"时", text:"绝对不要催、不要追问\"考虑得怎么样了\"。给对方空间，同时留个钩子（先加群听听分享会），保持联系不断线。过几天可以用分享会预告为由再轻触达一次。"}
+  ]}
+]},
+{id:7, num:"7", title:"大学第一课", desc:"送/优惠·钩子品", groups:[
+  {name:"🎯 三层权益体系（先搞懂）", tips:[
+    {type:"b", title:"199元=公开价 ｜ 159元=俱乐部内部优惠价 ｜ 0元=免费送", text:"《大学第一课》是晓晨聊大学提供给我们俱乐部的内部课程。想便宜买课得先加入俱乐部（159内部价）；聊得好、有成交概率的可能直接送（增强信任）。课程是俱乐部的\"内部福利\"，不是独立商品。"}
+  ]},
+  {name:"💡 痛点挖掘：让TA自己意识到\"我需要\"", items:[
+    {label:"痛点1：怕四年浑浑噩噩", text:"哈哈这个担心太真实了，我身边好多学长学姐到大四都这么说\n其实关键就是大一刚开始的时候有没有想明白要怎么过。我们那个《大学第一课》里，第一部分就是专门讲大学四年怎么规划的——什么时候该干什么、社团比赛怎么选、怎么安排才不后悔。你可以先看看这部分"},
+    {label:"痛点2：专业以后能干嘛", text:"哈哈这太正常了，我当年也是这样，被录取了才开始查'这专业是干嘛的'\n晓晨老师他们走访了150多场招聘会，聊了1000多个大学生，课程里专门有一部分讲各专业真实就业情况的——不是那种官方宣传，是招聘会上真实的现状。你看了至少知道自己专业以后有哪些路可以走"},
+    {label:"痛点3：就业难有点慌", text:"嗯确实卷，但你知道最惨的是哪种人吗？是大三才开始准备的那种。简历空白、实习没有、方向不明，那时候才是真的慌\n你现在大一就知道焦虑，反而是好事——因为你有四年时间可以准备。课程里有一部分专门讲简历和实习怎么提前准备的，大一开始积累和大三临时抱佛脚，完全是两个概念"},
+    {label:"痛点4：想努力不知往哪使劲", text:"哈哈我懂你，刚上大学那会儿我也是，看什么都觉得有用，结果什么都学了一点什么都没学精\n其实大学最重要的不是学得多，而是早点想清楚'我要成为什么样的人'，然后往那个方向积累。课程里有个1V1职业规划辅导，就是老师帮你梳理这个的——你自己想不明白的，让过来人帮你捋一捋"},
+    {label:"痛点5：想搞钱怕被骗", text:"哈哈想法很好，但提醒一句：大学里最不缺的就是割韭菜的，什么刷单、打字员、微商代理，全是坑\n课程里有一部分专门讲财富认知的——怎么正确看待兼职和副业、哪些是坑别踩、大学生怎么建立自己的赚钱思维。先把这个搞明白，再动手也不迟"},
+    {label:"痛点6：高中思维不管用了", text:"对，大学跟高中最大的区别就是：高中有人给你安排好一切，大学全靠你自己。很多人到大二都还没转过来这个弯\n课程里有一部分专门讲'摆脱学生思维'的——怎么自己安排时间、怎么独立思考、怎么主动争取机会。这个东西学校里没人教，但恰恰是最影响你大学四年的"}
+  ]},
+  {name:"🎁 送课话术（A类·聊得好有潜力，免费送）", items:[
+    {label:"场景1·评论区 第1条", text:"对了，看你对新媒体和大学规划这块还挺感兴趣的，我想起个事儿"},
+    {label:"场景1·评论区 第2条", text:"我们俱乐部有个内部课程，叫《大学第一课》，就是专门讲大学四年怎么过才不迷茫的。我大一那会儿要是有这东西，估计能少走好多弯路哈哈"},
+    {label:"场景1·评论区 第3条", text:"你要感兴趣的话，咱加个微信，我把课程介绍发你看看？觉得有用再说，不着急"},
+    {label:"场景2·私聊 第1条（最常用）", text:"诶，跟你说个事儿"},
+    {label:"场景2·私聊 第2条", text:"我们俱乐部有个内部课程，是晓晨聊大学那边给咱们提供的，专门讲大学规划的。我看你是真的想提前准备，一下就想到了这个"},
+    {label:"场景2·私聊 第3条", text:"这课线上卖199的，我帮你申请个名额，免费送你。你就当提前了解一下大学该怎么过，反正不要钱哈哈"},
+    {label:"场景2·私聊 第4条", text:"里面有大学规划、社团比赛怎么选、简历实习、职业方向这些，都是晓晨老师他们走访了150多场招聘会总结出来的，挺实在的"},
+    {label:"场景3·质疑免费 第1条", text:"哈哈理解，现在免费的东西确实容易让人警惕😂"},
+    {label:"场景3·质疑免费 第2条", text:"这么说吧，这课是我们自己团队做的，暑期我们想认识一些真正想成长的新生，就当是见面礼了"},
+    {label:"场景3·质疑免费 第3条", text:"你要是觉得有用，以后可以一起玩；觉得没用，也不亏啥对吧。领不领随你，不领咱也还是朋友哈哈"},
+    {label:"送课后交付 第1条", text:"那我把《大学第一课开通与观看指南》发你，你按着上面的步骤开通就行，两分钟搞定"},
+    {label:"送课后交付 第2条", text:"开好了跟我说一声哈，我帮你确认下。后面我们还有新生线上交流，到时候喊你😊"}
+  ]},
+  {name:"💰 优惠价话术（B类·俱乐部内部价159）", items:[
+    {label:"场景1·确定加入后 第1条", text:"对了，跟你说个事。你刚才不是说你对大学规划这块有点迷茫吗，我们俱乐部有个内部课程，正好就是讲这个的"},
+    {label:"场景1·确定加入后 第2条", text:"这个课是晓晨聊大学那边给我们俱乐部提供的，线上公开卖199。但我们俱乐部的小伙伴有内部优惠价，159就能拿下，比官方便宜40"},
+    {label:"场景1·确定加入后 第3条", text:"你要感兴趣的话，我先把课程介绍发你看看。觉得有用再定，没用拉倒，不着急哈哈"},
+    {label:"场景2·聊出需求后 第1条", text:"你刚才说的这个迷茫，我太懂了。我大一那会儿也这样，到大二才发现好多事一开始就错了"},
+    {label:"场景2·聊出需求后 第2条", text:"我们俱乐部有个内部课程，就是专门讲大学规划的。说实话不是啥神药，但至少能帮你提前看清一些坑"},
+    {label:"场景2·聊出需求后 第3条", text:"这个课线上卖199的，你要是后面加入俱乐部了，可以享受内部优惠价159。你可以先了解了解俱乐部，课程的事不急"}
+  ]},
+  {name:"💬 顾虑应对", items:[
+    {label:"网上不是有很多免费内容吗？", text:"确实，B站一搜一大把。但说实话，免费的东西收藏了大概率也不会看（我也是这样哈哈）。这课的好处是帮你捋成了一条线，跟着走就行，不用自己瞎摸。当然你要是自制力强，自己搜着学也完全OK"},
+    {label:"我怕买了没用", text:"这个担心很正常。我也不跟你说'买了一定能怎样'，不现实。它就相当于一个过来人把经验提前讲给你听，你觉得有用就听听，没用就当多个参考。反正你先看看介绍再定"},
+    {label:"我再考虑考虑", text:"行，不急。我把介绍发你，你有空看看。要是觉得不合适就拉倒，没压力😊"},
+    {label:"159有点贵", text:"理解，谁大学时候不缺钱呢哈哈。你可以这么想：一顿火锅钱，换个大学四年不迷路。你觉得值就值，不值就算，我不劝你买"},
+    {label:"加入俱乐部是不是必须买？", text:"不是不是，完全自愿！加入俱乐部是免费的，课程只是俱乐部的内部资源之一，你想买就买，不买也完全不影响你在俱乐部玩"}
+  ]},
+  {name:"✅ 成交后+承接俱乐部", items:[
+    {label:"成交后交付 第1条", text:"收到啦！我把开通指南发你，你按着上面的步骤来，两分钟就搞定"},
+    {label:"成交后交付 第2条", text:"开好了跟我说一声，我帮你看看。有啥问题直接截图发我哈"},
+    {label:"送课后承接A类 第1条", text:"诶，前两天送你的那个课，你看了没？有没有哪节觉得特别戳中你的😂"},
+    {label:"送课后承接A类 第2条", text:"哈哈那就好。其实课里讲的那些'怎么想明白'，跟我们俱乐部在做的事是配套的——课里讲的是方向，俱乐部是带你真的动手做起来"},
+    {label:"送课后承接A类 第3条", text:"我们8月中下旬有几场线上分享，开学后还有线下见面会，到时候我喊你。你来感受一下，觉得合适就一起玩"},
+    {label:"卖课后承接B类 第1条", text:"那个课你开始看了没？我跟你说，里面讲社团选择那节我觉得特别实在，你可以先看看那节"},
+    {label:"卖课后承接B类 第2条", text:"是吧！其实这些东西用起来才是真的有价值。我们俱乐部平时就是带大家一起把课里讲的东西落地，比如真的去做账号、做项目这种"},
+    {label:"卖课后承接B类 第3条", text:"对了，开学后我们俱乐部有线下见面会，会讲全年的规划，也会根据每个人的情况给建议。你要有空可以来听听，就当认识些新朋友，不合适也没关系"}
+  ]},
+  {name:"🚫 收款红线", tips:[
+    {type:"r", title:"绝对不能碰", text:"只发公司企业微信官方收款码，严禁个人收款；学生付款后请其发付款截图，确认实际到账；提醒付款时备注\"学校+大学第一课\"。提成100元/套，全国市场群报单。"}
+  ]}
+]},
+{id:8, num:"8", title:"发模板+拉群", desc:"自我介绍模板", groups:[
+  {name:"🗣️ 新生说\"想试试\"后（3条）", items:[
+    {label:"第1条【连发】", text:"欢迎欢迎👏👏👏"},
+    {label:"第2条【连发】", text:"那我先拉你进我们的新生群吧，群里都是跟你一样的新生，还有我们团队的学长学姐。8月的分享会通知也会在群里发"},
+    {label:"第3条【连发】", text:"不过进群前有个小小的门槛：需要写个自我介绍，就是让群里的小伙伴认识你一下🤗 我发个模板给你，你照着写就行"}
+  ]},
+  {name:"📋 自我介绍模板（直接复制发送）", items:[
+    {label:"模板", text:"自我介绍格式：\n1. 姓名、性别、专业、年级；\n2. 兴趣爱好（你喜欢做什么或者想做什么）；\n3. 简单聊聊你的家乡（美食、风景、风土人情都可以）；\n4. 分享一个你成长中的高光时刻（比如考过全班第一、当过班长、拿过什么奖等等）；\n5. 你对我们俱乐部的期待是什么？\n\n不用写太多，按这个格式简单写几句就行～\n\n写好了发给我，我拉你进群😊"}
+  ]},
+  {name:"💬 对方反应应对", items:[
+    {label:"对方说\"好的我准备准备\"", text:"嗯嗯不着急，写好了发我就行😊"},
+    {label:"对方说\"我不太会写/能不能不写\"", text:"哈哈理解，一开始大家都不好意思写。你就按模板写几句话就行，我可以发你几个别人写的参考下"},
+    {label:"对方超过1天没发（最多提醒1次）", text:"哈喽，自我介绍写得怎么样啦？不着急哈，就是提醒一下，怕你以为我把你忘了😂"}
+  ]},
+  {name:"✅ 审核→拉群", items:[
+    {label:"收到自我介绍后 第1条", text:"写得很好呀👍 南京我去过，盐水鸭确实好吃哈哈"},
+    {label:"第2条【连发】", text:"我拉你进群哈"}
+  ]},
+  {name:"⚠️ 关键认知", tips:[
+    {type:"y", title:"自我介绍模板是入群门槛，不是破冰工具", text:"新生确定想加入后才发送。审核基本都能过：信息完整+内容积极+无不当言论。写得特别敷衍也不用拒绝，让TA补两句兴趣爱好就行。"}
+  ]}
+]},
+{id:9, num:"9", title:"群内自我介绍", desc:"引导融入社群", groups:[
+  {name:"🗣️ 新生进群后，你在群里的动作", items:[
+    {label:"动作1：立刻@TA欢迎", text:"@XX 欢迎新同学🎉🎉🎉\n大家鼓掌欢迎👏👏👏\n@XX 可以把刚才发我的自我介绍再发一遍到群里哦～让大家都认识认识你😊"},
+    {label:"动作2：TA发了后回应细节", text:"欢迎欢迎👏👏👏\n原来是计算机专业的！南京我去过，盐水鸭超好吃的😋\n高中还当过班长，组织能力肯定很强！\n以后大家一起学习、一起进步💪"}
+  ]},
+  {name:"💬 新生没发自我介绍", items:[
+    {label:"私聊温和提醒", text:"哈喽，看你可能比较忙忘了发自我介绍哈哈😄 不着急，想好了再发就行～如果实在不知道怎么写，我发你个参考？"}
+  ]},
+  {name:"🎯 关键点", tips:[
+    {type:"g", title:"群内引导3要点", text:"① 回应细节：不要只说\"欢迎\"，要提到TA介绍里的具体内容（专业、家乡、经历），让TA感觉被认真对待\n② 带动氛围：其他团队成员看到新人进群也要跟着欢迎\n③ 后续关注：新人发言时多回应，帮TA快速融入"}
+  ]}
+]}
+];
+
+/* ================= 渲染 ================= */
+const content = document.getElementById('content');
+const nav = document.getElementById('nav');
+
+function buildNav() {
+  STAGES.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'nav-item';
+    el.dataset.stage = s.id;
+    el.innerHTML = `<span class="num">${s.num}</span>${s.title}`;
+    el.onclick = () => scrollToStage(s.id);
+    nav.appendChild(el);
+  });
+}
+
+function buildContent() {
+  STAGES.forEach(s => {
+    const stage = document.createElement('div');
+    stage.className = 'stage';
+    stage.id = 'stage-' + s.id;
+    let html = `<div class="stage-head" onclick="toggleStage(${s.id})">
+      <div class="badge">${s.num}</div>
+      <div class="info"><div class="title">${s.title}</div><div class="desc">${s.desc}</div></div>
+      <div class="arrow">▼</div></div><div class="stage-body">`;
+    s.groups.forEach(g => {
+      html += `<div class="group-title">${g.name}</div>`;
+      if (g.items) g.items.forEach(it => { html += scriptCard(it.label, it.text); });
+      if (g.tips) g.tips.forEach(tp => { html += tipBox(tp.type, tp.title, tp.text); });
+    });
+    html += `</div>`;
+    stage.innerHTML = html;
+    content.appendChild(stage);
+  });
+}
+
+function scriptCard(label, text) {
+  return `<div class="script">
+    <span class="label">📋 ${label}</span>
+    <button class="copy-btn" onclick="copyText(this)">复制</button>
+    <div class="text">${escapeHtml(text)}</div>
+  </div>`;
+}
+function tipBox(type, title, text) {
+  return `<div class="tip ${type}"><span class="tt">${title}</span>${escapeHtml(text).replace(/\n/g,'<br>')}</div>`;
+}
+function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+window.toggleStage = function(id) {
+  document.getElementById('stage-'+id).classList.toggle('collapsed');
+};
+
+function scrollToStage(id) {
+  const el = document.getElementById('stage-'+id);
+  el.classList.remove('collapsed');
+  const y = el.getBoundingClientRect().top + window.pageYOffset - 175;
+  window.scrollTo({top:y, behavior:'smooth'});
+}
+
+/* ================= 复制 ================= */
+window.copyText = function(btn) {
+  const text = btn.parentElement.querySelector('.text').innerText;
+  const done = () => {
+    btn.textContent = '✓ 已复制'; btn.classList.add('copied');
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 1500);
+    setTimeout(()=>{ btn.textContent='复制'; btn.classList.remove('copied'); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text, done));
+  } else { fallbackCopy(text, done); }
+};
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch(e){}
+  document.body.removeChild(ta); done();
+}
+
+/* ================= 搜索 ================= */
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', function() {
+  const kw = this.value.trim();
+  document.querySelectorAll('.stage').forEach(st => st.classList.remove('hidden-by-search'));
+  if (!kw) {
+    document.querySelectorAll('.script, .tip').forEach(el => { el.classList.remove('hidden-by-search'); el.innerHTML = el.innerHTML.replace(/<\/?mark>/g,''); });
+    return;
+  }
+  let anyVisible = false;
+  document.querySelectorAll('.stage').forEach(st => {
+    let stageHas = false;
+    st.querySelectorAll('.script, .tip').forEach(el => {
+      const raw = el.innerText;
+      const hit = raw.includes(kw);
+      el.classList.toggle('hidden-by-search', !hit);
+      if (hit) {
+        stageHas = true;
+        const textEl = el.querySelector('.text') || el;
+        textEl.innerHTML = textEl.innerHTML.replace(/<\/?mark>/g,'').split(kw).join('<mark>'+kw+'</mark>');
+      } else {
+        el.innerHTML = el.innerHTML.replace(/<\/?mark>/g,'');
+      }
+    });
+    st.classList.toggle('hidden-by-search', !stageHas);
+    if (stageHas) { st.classList.remove('collapsed'); anyVisible = true; }
+  });
+  // 更新导航高亮
+});
+
+/* ================= 滚动监听：导航高亮 ================= */
+window.addEventListener('scroll', () => {
+  const bt = document.getElementById('backTop');
+  bt.classList.toggle('show', window.pageYOffset > 400);
+  if (searchInput.value.trim()) return;
+  let current = STAGES[0].id;
+  STAGES.forEach(s => {
+    const el = document.getElementById('stage-'+s.id);
+    if (el && el.getBoundingClientRect().top < 200) current = s.id;
+  });
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.toggle('active', n.dataset.stage == current);
+    if (n.dataset.stage == current) n.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+  });
+});
+
+buildNav(); buildContent();
+</script>
+</body>
+</html>
