@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>QQ群成员整理 · 手机版</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0; padding: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; min-height: 100vh;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 12px 0 4px; text-align: center; font-weight: 700; }
+  .sub { text-align: center; opacity: .85; font-size: 13px; margin-bottom: 18px; }
+  textarea {
+    width: 100%; height: 180px; border: none; border-radius: 12px;
+    padding: 12px; font-size: 15px; line-height: 1.5; color: #222;
+    background: #fff; resize: vertical;
+  }
+  textarea:focus { outline: 2px solid #ffd866; }
+  .btns { display: flex; gap: 10px; margin: 14px 0; flex-wrap: wrap; }
+  button {
+    flex: 1; min-width: 120px; padding: 14px 10px; border: none; border-radius: 12px;
+    font-size: 16px; font-weight: 600; color: #fff; cursor: pointer;
+    background: #2d9cdb; transition: transform .08s, opacity .2s;
+  }
+  button:active { transform: scale(.96); }
+  button.ghost { background: rgba(255,255,255,.18); }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  .stat { text-align: center; font-size: 15px; margin: 14px 0 6px; }
+  .stat b { color: #ffd866; font-size: 20px; }
+  pre {
+    width: 100%; max-height: 240px; overflow: auto; background: rgba(0,0,0,.25);
+    border-radius: 12px; padding: 12px; font-size: 13px; line-height: 1.5; color: #e8e8e8;
+    white-space: pre-wrap; word-break: break-all;
+  }
+  .tip { font-size: 12px; opacity: .8; line-height: 1.6; margin-top: 16px; }
+  .tip code { background: rgba(255,255,255,.15); padding: 1px 5px; border-radius: 4px; }
+  .ok { color: #6bf; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>QQ群成员整理 · 手机版</h1>
+  <div class="sub">把群成员「备注 + QQ号」粘贴进来，一键去重排序，复制或导出表格给辅导员</div>
+
+  <textarea id="src" placeholder="每行一条，支持四种格式混排：
+张三 100293
+100294 李四
+王五 100295
+100296 赵六
+（左侧是备注，右侧是QQ号，顺序无所谓）"></textarea>
+
+  <div class="btns">
+    <button id="parse">⚡ 解析整理</button>
+    <button id="copy" class="ghost">📋 复制全部</button>
+    <button id="csv" class="ghost">💾 存CSV</button>
+  </div>
+
+  <div class="stat" id="stat">输入后点「解析整理」</div>
+  <pre id="out">（结果会显示在这里）</pre>
+
+  <div class="tip">
+    <p><b>手机上怎么拿到这些数据？</b></p>
+    <p>① 群主在 QQ 群「成员管理 → 导出成员列表」可拿到官方 txt；<br>
+    ② 或手机截图后用识图 App 把「备注 QQ号」粘进来。<br>
+    每行一条即可，不用管顺序，重复行会自动去重。</p>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const src = $('#src'), out = $('#out'), stat = $('#stat');
+const btnCopy = $('#copy'), btnCsv = $('#csv');
+
+function parse() {
+  const raw = src.value.trim();
+  if (!raw) { stat.innerHTML = '⚠️ 先粘贴内容'; return; }
+  const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const re = /(\S+)\s+(\d{5,13})/;
+  const map = new Map();
+  let bad = 0;
+  for (const ln of lines) {
+    const m = ln.match(re);
+    if (!m) { bad++; continue; }
+    let name = m[1], qq = m[2];
+    if (/^\d{5,13}$/.test(name)) { [name, qq] = [m[2], m[1]]; }
+    if (map.has(qq)) { map.delete(qq); } // 去重：同QQ只留一条
+    map.set(qq, name);
+  }
+  const arr = [...map.entries()].sort((a,b)=> Number(a[0]) - Number(b[0]));
+  const total = arr.length;
+  let txt = arr.map(([qq,name]) => name + ' ' + qq).join('\n');
+  out.textContent = txt;
+  stat.innerHTML = `✅ 整理完成：共 <b>${total}</b> 条` + (bad ? `（跳过 ${bad} 条格式不符）` : '');
+  window.__result = txt;
+  btnCopy.disabled = false; btnCsv.disabled = false;
+}
+
+$('#parse').addEventListener('click', parse);
+
+btnCopy.addEventListener('click', async () => {
+  if (!window.__result) return;
+  try {
+    await navigator.clipboard.writeText(window.__result);
+    stat.innerHTML += ' <span class="ok">已复制到剪贴板</span>';
+  } catch(e) { alert('复制失败，请手动长按上方结果选择复制'); }
+});
+
+btnCsv.addEventListener('click', () => {
+  if (!window.__result) return;
+  const blob = new Blob([window.__result], {type: 'text/plain;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'QQ群成员表.txt';
+  a.click();
+});
+
+// 初始禁用复制/导出，直到解析完成
+btnCopy.disabled = true; btnCsv.disabled = true;
+</script>
+</body>
+</html>
