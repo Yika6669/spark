@@ -101,6 +101,7 @@ function parse() {
 }
 
 $('#parse').addEventListener('click', parse);
+let _t; src.addEventListener('input', () => { clearTimeout(_t); _t = setTimeout(parse, 300); });
 
 btnCopy.addEventListener('click', async () => {
   if (!window.__result) return;
